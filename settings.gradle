@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='Rady_to_cook'

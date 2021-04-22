@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "582568840298",
+    "project_id": "grocery-booking",
+    "storage_bucket": "grocery-booking.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:582568840298:android:2c048eaeff2d23682ace13",
+        "android_client_info": {
+          "package_name": "com.mrf.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "582568840298-dkbpj60c2ie1rhg1upbd5tgj1f4hqk8d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mrf.app",
+            "certificate_hash": "dde456aec1ee348c565dd3ca613032acdf3a630b"
+          }
+        },
+        {
+          "client_id": "582568840298-3k9ou6q332fpi2up1l0o5g2rielcv2a1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgjkv_0xTAEEhbInefLzie6v77IQ4pcSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "582568840298-3k9ou6q332fpi2up1l0o5g2rielcv2a1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

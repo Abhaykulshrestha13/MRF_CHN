@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">M.R.F Fish &amp; Meats</string>
+    <string name="singin">Sign In</string>
+    <string name="singup">Sign Up</string>
+    <string name="forgot">Reset</string>
+    <string name="enteremial">Enter Your Email Address</string>
+    <string name="password">Enter Your Password</string>
+    <string name="newpassword">Enter New Password</string>
+    <string name="mobile">Enter Your Mobile Number</string>
+    <string name="city">Enter Your City</string>
+    <string name="navigation_drawer_open">navigation drawer open</string>
+    <string name="navigation_drawer_close">navigation drawer close</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="address">Flatno,/Building Name/Street Name</string>
+    <string name="address2">Landmark</string>
+    <string name="pincode">Pincode</string>
+    <string name="stats">Mobile No</string>
+    <string name="submit">Submit</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="internet_error">No Internet Connection</string>
+    <string name="type">Work/Home/Other</string>
+    <string name="emtydata">No Product</string>
+    <string name="confpassword">Confirm Password</string>
+
+    <string name="app_name1">Intro Slider App</string>
+    <string name="next">Next</string>
+    <string name="discover">Discover</string>
+    <string name="shop">Shop</string>
+    <string name="offers">Offers</string>
+    <string name="rewards">Rewards</string>
+    <string name="discover_text">Look for things around you</string>
+    <string name="shop_text"><![CDATA[Get the best deals & Coupons]]></string>
+    <string name="offers_text">Find great offers while you discover</string>
+    <string name="rewards_text"><![CDATA[Free recharge coupons & more]]></string>
+    <string name="get_started">Get Started</string>
+</resources>

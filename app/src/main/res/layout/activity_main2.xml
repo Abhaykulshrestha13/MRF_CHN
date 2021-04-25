@@ -35,11 +35,14 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="0dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_button_bg"
         android:text="@string/next"
-        android:textColor="@color/colorWhite"
+        android:textSize="18dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -123,7 +123,6 @@ public class HomeActivity extends AppCompatActivity {
         } else {
             txtNoti.setVisibility(View.VISIBLE);
             txtNoti.setText("" + i);
-
         }
     }
 

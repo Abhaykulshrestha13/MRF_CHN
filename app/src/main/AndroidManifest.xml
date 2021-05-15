@@ -16,6 +16,7 @@
         android:theme="@style/FullscreenTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity
             android:name=".activity.FAQActivity"
             android:screenOrientation="portrait"
@@ -59,21 +60,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/HomeTheme"
             tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".activity.SignUpActivity"
+
+        <activity android:name=".activity.OtpLoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/them3"
+            android:theme="@style/AppTheme"
             tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".activity.SignInActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/them3"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".activity.LoginstartActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/them3"
-            tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".MainActivity1"
             android:screenOrientation="portrait"

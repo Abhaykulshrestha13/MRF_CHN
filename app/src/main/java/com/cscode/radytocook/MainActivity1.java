@@ -15,6 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.cscode.radytocook.activity.FirstActivity;
 import com.cscode.radytocook.activity.LoginstartActivity;
+import com.cscode.radytocook.activity.OtpLoginActivity;
 import com.cscode.radytocook.adepter.SliderPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
@@ -59,7 +60,7 @@ public class MainActivity1 extends AppCompatActivity {
 
       @Override public void onClick(View view) {
         if(viewPager.getCurrentItem() == adapter.getCount()-1){
-          Intent i = new Intent(MainActivity1.this, LoginstartActivity.class);
+          Intent i = new Intent(MainActivity1.this, OtpLoginActivity.class);
           startActivity(i);
           finish();
         }

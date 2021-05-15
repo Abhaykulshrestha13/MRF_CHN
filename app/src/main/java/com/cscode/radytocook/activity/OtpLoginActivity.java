@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.cscode.radytocook.R;
+import com.cscode.radytocook.utils.SessionManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -36,6 +37,7 @@ public class OtpLoginActivity extends AppCompatActivity {
 
     // string for storing our verification ID
     private String verificationId;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,7 @@ public class OtpLoginActivity extends AppCompatActivity {
         edtOTP = findViewById(R.id.idEdtOtp);
         verifyOTPBtn = findViewById(R.id.idBtnVerify);
         generateOTPBtn = findViewById(R.id.idBtnGetOtp);
+        sessionManager = new SessionManager(OtpLoginActivity.this);
 
         // setting onclick listner for generate OTP button.
         generateOTPBtn.setOnClickListener(new View.OnClickListener() {

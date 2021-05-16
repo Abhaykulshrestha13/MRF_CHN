@@ -9,10 +9,13 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cscode.radytocook.R;
+import com.cscode.radytocook.model.Home;
 import com.cscode.radytocook.model.Response;
+import com.cscode.radytocook.model.User;
 import com.cscode.radytocook.retrofit.APIClient;
 import com.cscode.radytocook.retrofit.GetResult;
 import com.cscode.radytocook.utils.GetService;
+import com.cscode.radytocook.utils.SessionManager;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -41,7 +44,7 @@ public class SignInActivity extends AppCompatActivity implements GetResult.MyLis
     EditText edFname;
     @BindView(R.id.ed_lname)
     EditText edLname;
-
+    static String globalNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +71,27 @@ public class SignInActivity extends AppCompatActivity implements GetResult.MyLis
             jsonObject.put("password", edPassword.getText().toString());
             jsonObject.put("mobile", edMobile.getText().toString());
             jsonObject.put("city", edCity.getText().toString());
+
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().getSignUp((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.callForLogin(call, "1");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    void signUp(String number) {
+        globalNumber = number;
+//        GetService.showPrograss(SignInActivity.this);
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("fname", number);
+            jsonObject.put("lname", number);
+            jsonObject.put("email", number);
+            jsonObject.put("password",number);
+            jsonObject.put("mobile", number);
+            jsonObject.put("city", number);
 
             JsonParser jsonParser = new JsonParser();
             Call<JsonObject> call = APIClient.getInterface().getSignUp((JsonObject) jsonParser.parse(jsonObject.toString()));
@@ -109,15 +133,20 @@ public class SignInActivity extends AppCompatActivity implements GetResult.MyLis
         if (callNo.equalsIgnoreCase("1") || result.toString().length() != 0) {
             Gson gson = new Gson();
             Response response = gson.fromJson(result.toString(), Response.class);
-            GetService.ToastMessege(SignInActivity.this, response.getResponseMsg());
-            if (response.getResult().equalsIgnoreCase("true")) {
-                startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
+//            GetService.ToastMessege(SignInActivity.this, response.getResponseMsg());
+            SignUpActivity ob = new SignUpActivity();
+            ob.login(globalNumber);
+//                startActivity(new Intent(SignInActivity.this, HomeActivity.class));
+
+//                startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
+
+
+                }
+
                 finish();
             }
 
-        }
 
-    }
 
     @Override
     public void onBackPressed() {

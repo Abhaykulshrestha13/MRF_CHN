@@ -107,21 +107,13 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void data() {
-//        UserData user = sessionManager.getUserDetails("");
-//        char first = user.getFname().charAt(0);
-//        Log.e("first", "-->" + first);
-//        txtfirstl.setText("" + first);
-        String fst = new String("G");
-        String nme = new String("Gokul");
-        String mbl = new String("9488223476");
-        String eml = new String("gokulakrishnan.m2@ashokleyland.com");
-        txtfirstl.setText("" + fst);
-//        txtName.setText("" + user.getFname());F
-        txtName.setText(""+ nme);
-//        txtMob.setText("" + user.getMobile());
-        txtMob.setText("" + mbl);
-//        txtEmail.setText("" + user.getEmail());
-        txtEmail.setText("" + eml);
+        UserData user = sessionManager.getUserDetails("");
+        char first = user.getFname().charAt(0);
+        Log.e("first", "-->" + first);
+        txtfirstl.setText("" + first);
+        txtName.setText("" + user.getFname());
+        txtMob.setText("" + user.getMobile());
+        txtEmail.setText("" + user.getEmail());
     }
 
     public static void notificationCount(int i) {

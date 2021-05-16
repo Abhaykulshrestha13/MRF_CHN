@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.cscode.radytocook.R;
+import com.cscode.radytocook.retrofit.GetResult;
 import com.cscode.radytocook.utils.SessionManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,10 +20,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.gson.JsonObject;
 
 import java.util.concurrent.TimeUnit;
 
-public class OtpLoginActivity extends AppCompatActivity {
+public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyListener {
 
 
     // variable for FirebaseAuth class
@@ -104,8 +106,14 @@ public class OtpLoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
-                            Intent i = new Intent(OtpLoginActivity.this, HomeActivity.class);
-                            startActivity(i);
+                            SignInActivity ob = new SignInActivity();
+                            ob.signUp(edtPhone.getText().toString());
+//                            SignUpActivity obj = new SignUpActivity();
+//                            obj.login(edtPhone.getText().toString());
+//                            sessionManager.setUserDetails("", response.getResultData());
+//                            sessionManager.setBooleanData(SessionManager.USERLOGIN, true);
+//                            Intent i = new Intent(OtpLoginActivity.this, HomeActivity.class);
+//                            startActivity(i);
                             finish();
                         } else {
                             // if the code is not correct then we are
@@ -190,5 +198,10 @@ public class OtpLoginActivity extends AppCompatActivity {
         // after getting credential we are
         // calling sign in method.
         signInWithCredential(credential);
+    }
+
+    @Override
+    public void callback(JsonObject result, String callNo) {
+
     }
 }

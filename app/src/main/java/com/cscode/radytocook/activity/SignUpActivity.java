@@ -79,15 +79,32 @@ public class SignUpActivity extends AppCompatActivity implements GetResult.MyLis
         }
     }
 
+    void login(String number) {
+//        GetService.showPrograss(SignUpActivity.this);
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("email", number);
+            jsonObject.put("password", number);
+
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().getSignIn((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.callForLogin(call, "1");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void callback(JsonObject result, String callNo) {
         GetService.close();
         if (callNo.equalsIgnoreCase("1") || result.toString().length() != 0) {
             Gson gson = new Gson();
             User response = gson.fromJson(result.toString(), User.class);
-            GetService.ToastMessege(SignUpActivity.this, response.getResponseMsg());
+//            GetService.ToastMessege(SignUpActivity.this, response.getResponseMsg());
             if (response.getResult().equalsIgnoreCase("true")) {
-                sessionManager.setUserDetails("", response.getResultData());
+                sessionManager.setUserDetails("user", response.getResultData());
                 sessionManager.setBooleanData(SessionManager.USERLOGIN, true);
                 startActivity(new Intent(SignUpActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 finish();

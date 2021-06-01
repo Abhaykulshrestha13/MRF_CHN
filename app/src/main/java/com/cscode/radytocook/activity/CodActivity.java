@@ -41,7 +41,7 @@ public class CodActivity extends AppCompatActivity implements GetResult.MyListen
         helper = new DatabaseHelper(CodActivity.this);
         sessionManager = new SessionManager(CodActivity.this);
         userData = new UserData();
-        userData = sessionManager.getUserDetails("");
+        userData = sessionManager.getUserDetails("user");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             aid = extras.getString("aid");

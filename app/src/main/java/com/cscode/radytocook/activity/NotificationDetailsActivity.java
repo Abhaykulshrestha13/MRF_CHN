@@ -47,7 +47,7 @@ public class NotificationDetailsActivity extends AppCompatActivity implements Ge
         getSupportActionBar().setTitle("Notification Details");
         ButterKnife.bind(this);
         sessionManager = new SessionManager(NotificationDetailsActivity.this);
-        user = sessionManager.getUserDetails("");
+        user = sessionManager.getUserDetails("user");
         noti = getIntent().getParcelableExtra("myclass");
         txtTitel.setText("" + noti.getTitle());
         txtDate.setText("" + noti.getDate());

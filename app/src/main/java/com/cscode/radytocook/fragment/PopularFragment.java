@@ -58,7 +58,7 @@ public class PopularFragment extends Fragment implements GetResult.MyListener {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
         ButterKnife.bind(this, view);
         sessionManager = new SessionManager(getActivity());
-        userData = sessionManager.getUserDetails("");
+        userData = sessionManager.getUserDetails("user");
         reyCategory.setHasFixedSize(true);
         reyCategory.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         getPopular();

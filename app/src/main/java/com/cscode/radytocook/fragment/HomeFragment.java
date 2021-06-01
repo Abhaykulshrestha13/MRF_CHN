@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment implements GetResult.MyListener {
         ButterKnife.bind(this, view);
         sessionManager = new SessionManager(getActivity());
         userData = new UserData();
-        userData = sessionManager.getUserDetails("");
+        userData = sessionManager.getUserDetails("user");
 
         viewpager.startAutoScroll();
         viewpager.setInterval(4000);
@@ -145,7 +145,11 @@ public class HomeFragment extends Fragment implements GetResult.MyListener {
         GetService.showPrograss(getActivity());
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("uid", userData.getId());
+            try {
+                jsonObject.put("uid", userData.getId());
+            } catch (Exception e) {
+                jsonObject.put("uid", " ");
+            }
             JsonParser jsonParser = new JsonParser();
             Call<JsonObject> call = APIClient.getInterface().getHome((JsonObject) jsonParser.parse(jsonObject.toString()));
             GetResult getResult = new GetResult();

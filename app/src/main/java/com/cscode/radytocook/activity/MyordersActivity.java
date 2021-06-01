@@ -65,7 +65,7 @@ public class MyordersActivity extends AppCompatActivity implements GetResult.MyL
 
         userData = new UserData();
         sessionManager = new SessionManager(MyordersActivity.this);
-        userData = sessionManager.getUserDetails("");
+        userData = sessionManager.getUserDetails("user");
 
         LinearLayoutManager recyclerLayoutManager = new LinearLayoutManager(MyordersActivity.this);
         recycleAddress.setLayoutManager(recyclerLayoutManager);
@@ -135,7 +135,7 @@ public class MyordersActivity extends AppCompatActivity implements GetResult.MyL
 
     public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
 
-        private List<Orderlist> orderlists;
+        private final List<Orderlist> orderlists;
 
         public OrderAdapter(List<Orderlist> offersListIn) {
             orderlists = offersListIn;
@@ -188,7 +188,7 @@ public class MyordersActivity extends AppCompatActivity implements GetResult.MyL
     }
 
     public class MyOrderAdepter extends RecyclerView.Adapter<MyOrderAdepter.ViewHolder> {
-        private List<OrderDatum> orderData;
+        private final List<OrderDatum> orderData;
 
         public MyOrderAdepter(List<OrderDatum> orderData) {
             this.orderData = orderData;

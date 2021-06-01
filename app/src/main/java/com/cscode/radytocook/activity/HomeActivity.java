@@ -107,15 +107,22 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void data() {
-        UserData user = sessionManager.getUserDetails("");
-        char first = user.getFname().charAt(0);
-        Log.e("first", "-->" + first);
-        txtfirstl.setText("" + first);
-        txtName.setText("" + user.getFname());
-        txtMob.setText("" + user.getMobile());
-        txtEmail.setText("" + user.getEmail());
-    }
+        UserData user = sessionManager.getUserDetails("user");
+        if (user == null) {
+            txtfirstl.setText("");
+            txtName.setText("");
+            txtMob.setText("");
+            txtEmail.setText("");
+        } else {
 
+            char first = user.getFname().charAt(0);
+            Log.e("first", "-->" + first);
+            txtfirstl.setText("" + first);
+            txtName.setText("" + user.getFname());
+            txtMob.setText("" + user.getMobile());
+            txtEmail.setText("" + user.getEmail());
+        }
+    }
     public static void notificationCount(int i) {
 
         if (i <= 0) {
@@ -145,11 +152,11 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.contect:
                 startActivity(new Intent(HomeActivity.this, ContectusActivity.class));
                 break;
-//            case R.id.logout:
-//                sessionManager.logoutUser();
-//                startActivity(new Intent(HomeActivity.this, SignUpActivity.class));
-//                finish();
-//                break;
+            case R.id.logout:
+                sessionManager.logoutUser();
+                startActivity(new Intent(HomeActivity.this, SignUpActivity.class));
+                finish();
+                break;
             case R.id.about:
                 startActivity(new Intent(HomeActivity.this, AboutsActivity.class));
                 break;
@@ -215,10 +222,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public boolean isView() {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.home_frame);
-        if (fragment instanceof ItemItemFragment && fragment.isVisible()) {
-            return true;
-        }
-        return false;
+        return fragment instanceof ItemItemFragment && fragment.isVisible();
 
     }
 

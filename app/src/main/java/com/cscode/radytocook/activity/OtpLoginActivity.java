@@ -1,7 +1,5 @@
 package com.cscode.radytocook.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -9,20 +7,35 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.cscode.radytocook.R;
+import com.cscode.radytocook.model.User;
+import com.cscode.radytocook.retrofit.APIClient;
 import com.cscode.radytocook.retrofit.GetResult;
+import com.cscode.radytocook.utils.GetService;
 import com.cscode.radytocook.utils.SessionManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.concurrent.TimeUnit;
+
+import retrofit2.Call;
 
 public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyListener {
 
@@ -106,14 +119,22 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
                         if (task.isSuccessful()) {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
-                            SignInActivity ob = new SignInActivity();
-                            ob.signUp(edtPhone.getText().toString());
-//                            SignUpActivity obj = new SignUpActivity();
-//                            obj.login(edtPhone.getText().toString());
-//                            sessionManager.setUserDetails("", response.getResultData());
-//                            sessionManager.setBooleanData(SessionManager.USERLOGIN, true);
-//                            Intent i = new Intent(OtpLoginActivity.this, HomeActivity.class);
-//                            startActivity(i);
+
+                            FirebaseUser user = task.getResult().getUser();
+                            long creationTimestamp = user.getMetadata().getCreationTimestamp();
+                            long lastSignInTimestamp = user.getMetadata().getLastSignInTimestamp();
+                            String phoneNumber = edtPhone.getText().toString();
+                            if (creationTimestamp == lastSignInTimestamp) {
+                                //do create new user
+                                signUp(phoneNumber);
+                            } else {
+                                //user is exists, just do login
+//                                signUp(phoneNumber);
+                                login(phoneNumber);
+                            }
+//                            SignInActivity ob = new SignInActivity();
+
+
                             finish();
                         } else {
                             // if the code is not correct then we are
@@ -122,6 +143,42 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
                         }
                     }
                 });
+    }
+
+    private void signUp(String number) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("fname", number);
+            jsonObject.put("lname", number);
+            jsonObject.put("email", number);
+            jsonObject.put("password", number);
+            jsonObject.put("mobile", number);
+            jsonObject.put("city", number);
+
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().getSignUp((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.callForLogin(call, "1");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void login(String phoneNumber) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("email", phoneNumber);
+            jsonObject.put("password", phoneNumber);
+
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().getSignIn((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.callForLogin(call, "1");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -139,7 +196,7 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
     }
 
     // callback method is called on Phone auth provider.
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks
+    private final PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
             // initializing our callbacks for on
             // verification callback method.
@@ -199,9 +256,19 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
         // calling sign in method.
         signInWithCredential(credential);
     }
-
     @Override
     public void callback(JsonObject result, String callNo) {
-
+        GetService.close();
+        if (callNo.equalsIgnoreCase("1") || result.toString().length() != 0) {
+            Gson gson = new Gson();
+            User response = gson.fromJson(result.toString(), User.class);
+//            GetService.ToastMessege(SignUpActivity.this, response.getResponseMsg());
+            if (response.getResult().equalsIgnoreCase("true")) {
+                sessionManager.setUserDetails("user", response.getResultData());
+                sessionManager.setBooleanData(SessionManager.USERLOGIN, true);
+                startActivity(new Intent(OtpLoginActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                finish();
+            }
+        }
     }
 }

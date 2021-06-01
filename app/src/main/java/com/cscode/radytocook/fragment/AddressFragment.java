@@ -40,8 +40,6 @@ import retrofit2.Call;
 
 import static com.cscode.radytocook.utils.GetService.isRef;
 
-;
-
 
 public class AddressFragment extends Fragment implements GetResult.MyListener {
 
@@ -81,7 +79,7 @@ public class AddressFragment extends Fragment implements GetResult.MyListener {
         ButterKnife.bind(this, view);
         user = new UserData();
         sessionManager = new SessionManager(getActivity());
-        user = sessionManager.getUserDetails("");
+        user = sessionManager.getUserDetails("user");
 
         LinearLayoutManager recyclerLayoutManager = new LinearLayoutManager(getActivity());
         recycleAddress.setLayoutManager(recyclerLayoutManager);
@@ -102,7 +100,7 @@ public class AddressFragment extends Fragment implements GetResult.MyListener {
             RecyclerView.Adapter<SelectAdrsAdapter.ViewHolder> {
 
 
-        private List<Address> offersList;
+        private final List<Address> offersList;
 
 
         private int lastSelectedPosition = -1;

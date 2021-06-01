@@ -40,8 +40,8 @@ public class ProfileActivity extends AppCompatActivity implements GetResult.MyLi
     EditText edEmail;
     @BindView(R.id.ed_phone)
     EditText edPhone;
-    @BindView(R.id.ed_password)
-    EditText edPassword;
+    //    @BindView(R.id.ed_password)
+//    EditText edPassword;
     @BindView(R.id.btn_update)
     Button btnUpdate;
 
@@ -61,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity implements GetResult.MyLi
         sessionManager = new SessionManager(ProfileActivity.this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("My Profile");
-        userData = sessionManager.getUserDetails("");
+        userData = sessionManager.getUserDetails("user");
         if (userData != null) {
             txtProfilename.setText("" + userData.getFname() + " " + userData.getLname());
             txtCity.setText("" + userData.getCity());
@@ -69,7 +69,7 @@ public class ProfileActivity extends AppCompatActivity implements GetResult.MyLi
             edLname.setText("" + userData.getLname());
             edEmail.setText("" + userData.getEmail());
             edPhone.setText("" + userData.getMobile());
-            edPassword.setText("" + userData.getPassword());
+//            edPassword.setText("" + userData.getPassword());
 
         }
     }
@@ -95,7 +95,7 @@ public class ProfileActivity extends AppCompatActivity implements GetResult.MyLi
         try {
             jsonObject.put("uid", userData.getId());
             jsonObject.put("email", edEmail.getText().toString());
-            jsonObject.put("password", edPassword.getText().toString());
+//            jsonObject.put("password", edPassword.getText().toString());
             jsonObject.put("mobile", edPhone.getText().toString());
             jsonObject.put("fname", edFname.getText().toString());
             jsonObject.put("lname", edLname.getText().toString());
@@ -117,7 +117,7 @@ public class ProfileActivity extends AppCompatActivity implements GetResult.MyLi
             Gson gson = new Gson();
             User response = gson.fromJson(result.toString(), User.class);
             if (response.getResult().equalsIgnoreCase("true")) {
-                sessionManager.setUserDetails("", response.getResultData());
+                sessionManager.setUserDetails("user", response.getResultData());
                 finish();
             }
             Toast.makeText(ProfileActivity.this, response.getResponseMsg(), Toast.LENGTH_LONG).show();

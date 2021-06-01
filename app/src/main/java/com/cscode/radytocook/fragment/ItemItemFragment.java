@@ -83,7 +83,7 @@ public class ItemItemFragment extends Fragment {
         ButterKnife.bind(this, view);
         databaseHelper = new DatabaseHelper(getActivity());
         sessionManager = new SessionManager(getActivity());
-        userData = sessionManager.getUserDetails("");
+        userData = sessionManager.getUserDetails("user");
 
         recyviewSub.setHasFixedSize(true);
         recyviewSub.setLayoutManager(new GridLayoutManager(getActivity(), 1));

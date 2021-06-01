@@ -1,6 +1,5 @@
 package com.cscode.radytocook.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
@@ -9,14 +8,9 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cscode.radytocook.R;
-import com.cscode.radytocook.model.Home;
-import com.cscode.radytocook.model.Response;
-import com.cscode.radytocook.model.User;
 import com.cscode.radytocook.retrofit.APIClient;
 import com.cscode.radytocook.retrofit.GetResult;
 import com.cscode.radytocook.utils.GetService;
-import com.cscode.radytocook.utils.SessionManager;
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -130,21 +124,20 @@ public class SignInActivity extends AppCompatActivity implements GetResult.MyLis
     @Override
     public void callback(JsonObject result, String callNo) {
 
-        if (callNo.equalsIgnoreCase("1") || result.toString().length() != 0) {
-            Gson gson = new Gson();
-            Response response = gson.fromJson(result.toString(), Response.class);
-//            GetService.ToastMessege(SignInActivity.this, response.getResponseMsg());
-            SignUpActivity ob = new SignUpActivity();
-            ob.login(globalNumber);
-//                startActivity(new Intent(SignInActivity.this, HomeActivity.class));
-
-//                startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
-
-
-                }
-
-                finish();
-            }
+//        if (callNo.equalsIgnoreCase("1") || result.toString().length() != 0) {
+//            Gson gson = new Gson();
+//            gson.fromJson(result.toString(), Response.class);
+////            GetService.ToastMessege(SignInActivity.this, response.getResponseMsg());
+//
+////                startActivity(new Intent(SignInActivity.this, HomeActivity.class));
+//
+////                startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
+//
+//
+//                }
+//
+//                finish();
+    }
 
 
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -28,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Abhijit Rana"
+                android:text=""
                 android:textColor="@color/colorblack"
                 android:textSize="21dp"
                 android:textStyle="bold"
@@ -40,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Surat,Gujarat"
+                android:text=""
                 android:textColor="@color/colorblack"
                 android:visibility="gone" />
 
@@ -68,7 +67,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:enabled="true"
-                        android:text="Abhijit"
+                        android:text=""
                         android:textColor="@color/colorblack" />
                 </LinearLayout>
 
@@ -109,7 +108,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:enabled="true"
-                        android:text="Rana"
+                        android:text=""
                         android:textColor="@color/colorblack" />
                 </LinearLayout>
 
@@ -150,7 +149,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:enabled="true"
-                        android:text="abhijit@gmail.com"
+                        android:text=""
                         android:textColor="@color/colorblack" />
                 </LinearLayout>
 
@@ -192,7 +191,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="true"
                         android:inputType="phone"
-                        android:text="9876543210"
+                        android:text=""
                         android:textColor="@color/colorblack" />
                 </LinearLayout>
                 <TextView
@@ -219,21 +218,21 @@
                     android:visibility="visible"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center|left"
-                        android:padding="3dp"
-                        android:text="Password" />
+                    <!--                    <TextView-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:gravity="center|left"-->
+                    <!--                        android:padding="3dp"-->
+                    <!--                        android:text="Password" />-->
 
-                    <EditText
-                        android:id="@+id/ed_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPassword"
-                        android:text=""
-                        android:textColor="@color/colorblack"
-                        />
+                    <!--                    <EditText-->
+                    <!--                        android:id="@+id/ed_password"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:inputType="textPassword"-->
+                    <!--                        android:text=""-->
+                    <!--                        android:textColor="@color/colorblack"-->
+                    <!--                        />-->
                 </LinearLayout>
 
                 <TextView

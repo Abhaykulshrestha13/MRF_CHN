@@ -127,14 +127,11 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
                             if (creationTimestamp == lastSignInTimestamp) {
                                 //do create new user
                                 signUp(phoneNumber);
+                                login(phoneNumber);
                             } else {
                                 //user is exists, just do login
-//                                signUp(phoneNumber);
                                 login(phoneNumber);
                             }
-//                            SignInActivity ob = new SignInActivity();
-
-
                             finish();
                         } else {
                             // if the code is not correct then we are
@@ -262,7 +259,7 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
         if (callNo.equalsIgnoreCase("1") || result.toString().length() != 0) {
             Gson gson = new Gson();
             User response = gson.fromJson(result.toString(), User.class);
-//            GetService.ToastMessege(SignUpActivity.this, response.getResponseMsg());
+            GetService.ToastMessege(OtpLoginActivity.this, response.getResponseMsg());
             if (response.getResult().equalsIgnoreCase("true")) {
                 sessionManager.setUserDetails("user", response.getResultData());
                 sessionManager.setBooleanData(SessionManager.USERLOGIN, true);

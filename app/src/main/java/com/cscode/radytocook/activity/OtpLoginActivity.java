@@ -3,7 +3,6 @@ package com.cscode.radytocook.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -17,10 +16,7 @@ import com.cscode.radytocook.retrofit.APIClient;
 import com.cscode.radytocook.retrofit.GetResult;
 import com.cscode.radytocook.utils.GetService;
 import com.cscode.radytocook.utils.SessionManager;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -33,6 +29,7 @@ import com.google.gson.JsonParser;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
@@ -46,9 +43,6 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
     // variable for our text input
     // field for phone and OTP.
     private EditText edtPhone, edtOTP;
-
-    // buttons for generating OTP and verifying OTP
-    private Button verifyOTPBtn, generateOTPBtn;
 
     // string for storing our verification ID
     private String verificationId;
@@ -67,44 +61,39 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
         // initializing variables for button and Edittext.
         edtPhone = findViewById(R.id.idEdtPhoneNumber);
         edtOTP = findViewById(R.id.idEdtOtp);
-        verifyOTPBtn = findViewById(R.id.idBtnVerify);
-        generateOTPBtn = findViewById(R.id.idBtnGetOtp);
+        // buttons for generating OTP and verifying OTP
+        Button verifyOTPBtn = findViewById(R.id.idBtnVerify);
+        Button generateOTPBtn = findViewById(R.id.idBtnGetOtp);
         sessionManager = new SessionManager(OtpLoginActivity.this);
 
         // setting onclick listner for generate OTP button.
-        generateOTPBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // below line is for checking weather the user
-                // has entered his mobile number or not.
-                if (TextUtils.isEmpty(edtPhone.getText().toString())) {
-                    // when mobile number text field is empty
-                    // displaying a toast message.
-                    Toast.makeText(OtpLoginActivity.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
-                } else {
-                    // if the text field is not empty we are calling our
-                    // send OTP method for getting OTP from Firebase.
-                    String phone = "+91" + edtPhone.getText().toString();
-                    sendVerificationCode(phone);
-                }
+        generateOTPBtn.setOnClickListener(v -> {
+            // below line is for checking weather the user
+            // has entered his mobile number or not.
+            if (TextUtils.isEmpty(edtPhone.getText().toString())) {
+                // when mobile number text field is empty
+                // displaying a toast message.
+                Toast.makeText(OtpLoginActivity.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
+            } else {
+                // if the text field is not empty we are calling our
+                // send OTP method for getting OTP from Firebase.
+                String phone = "+91" + edtPhone.getText().toString();
+                sendVerificationCode(phone);
             }
         });
 
         // initializing on click listener
         // for verify otp button
-        verifyOTPBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // validating if the OTP text field is empty or not.
-                if (TextUtils.isEmpty(edtOTP.getText().toString())) {
-                    // if the OTP text field is empty display
-                    // a message to user to enter OTP
-                    Toast.makeText(OtpLoginActivity.this, "Please enter OTP", Toast.LENGTH_SHORT).show();
-                } else {
-                    // if OTP field is not empty calling
-                    // method to verify the OTP.
-                    verifyCode(edtOTP.getText().toString());
-                }
+        verifyOTPBtn.setOnClickListener(v -> {
+            // validating if the OTP text field is empty or not.
+            if (TextUtils.isEmpty(edtOTP.getText().toString())) {
+                // if the OTP text field is empty display
+                // a message to user to enter OTP
+                Toast.makeText(OtpLoginActivity.this, "Please enter OTP", Toast.LENGTH_SHORT).show();
+            } else {
+                // if OTP field is not empty calling
+                // method to verify the OTP.
+                verifyCode(edtOTP.getText().toString());
             }
         });
     }
@@ -113,31 +102,25 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
         // inside this method we are checking if
         // the code entered is correct or not.
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // if the code is correct and the task is successful
-                            // we are sending our user to new activity.
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        // if the code is correct and the task is successful
+                        // we are sending our user to new activity.
 
-                            FirebaseUser user = task.getResult().getUser();
-                            long creationTimestamp = user.getMetadata().getCreationTimestamp();
-                            long lastSignInTimestamp = user.getMetadata().getLastSignInTimestamp();
-                            String phoneNumber = edtPhone.getText().toString();
-                            if (creationTimestamp == lastSignInTimestamp) {
-                                //do create new user
-                                signUp(phoneNumber);
-                                login(phoneNumber);
-                            } else {
-                                //user is exists, just do login
-                                login(phoneNumber);
-                            }
-                            finish();
-                        } else {
-                            // if the code is not correct then we are
-                            // displaying an error message to the user.
-                            Toast.makeText(OtpLoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        FirebaseUser user = task.getResult().getUser();
+                        long creationTimestamp = Objects.requireNonNull(user != null ? user.getMetadata() : null).getCreationTimestamp();
+                        long lastSignInTimestamp = user.getMetadata().getLastSignInTimestamp();
+                        String phoneNumber = edtPhone.getText().toString();
+                        if (creationTimestamp == lastSignInTimestamp) {
+                            //do create new user
+                            signUp(phoneNumber);
                         }
+                        login(phoneNumber);
+                        finish();
+                    } else {
+                        // if the code is not correct then we are
+                        // displaying an error message to the user.
+                        Toast.makeText(OtpLoginActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
     }
@@ -202,7 +185,7 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
         // below method is used when
         // OTP is sent from Firebase
         @Override
-        public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+        public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
             // when we receive the OTP it
             // contains a unique id which

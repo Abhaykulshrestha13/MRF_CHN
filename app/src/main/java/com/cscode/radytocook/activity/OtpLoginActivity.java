@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cscode.radytocook.R;
+import com.cscode.radytocook.model.GenericTextWatcher;
 import com.cscode.radytocook.model.User;
 import com.cscode.radytocook.retrofit.APIClient;
 import com.cscode.radytocook.retrofit.GetResult;
@@ -53,6 +54,9 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
     // string for storing our verification ID
     private String verificationId;
     SessionManager sessionManager;
+
+    EditText otp_textbox_one, otp_textbox_two, otp_textbox_three, otp_textbox_four;
+    Button verify_otp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +111,31 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
                 }
             }
         });
+
+            otp_textbox_one = findViewById(R.id.otp_edit_box1);
+            otp_textbox_two = findViewById(R.id.otp_edit_box2);
+            otp_textbox_three = findViewById(R.id.otp_edit_box3);
+            otp_textbox_four = findViewById(R.id.otp_edit_box4);
+            verify_otp = findViewById(R.id.verify_otp_btn);
+
+
+            EditText[] edit = {otp_textbox_one, otp_textbox_two, otp_textbox_three, otp_textbox_four};
+
+            otp_textbox_one.addTextChangedListener(new GenericTextWatcher(otp_textbox_one, edit));
+            otp_textbox_two.addTextChangedListener(new GenericTextWatcher(otp_textbox_two, edit));
+            otp_textbox_three.addTextChangedListener(new GenericTextWatcher(otp_textbox_three, edit));
+            otp_textbox_four.addTextChangedListener(new GenericTextWatcher(otp_textbox_four, edit));
+
+
+            verify_otp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getApplicationContext(), "Login Successfull", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+
+
     }
 
     private void signInWithCredential(PhoneAuthCredential credential) {

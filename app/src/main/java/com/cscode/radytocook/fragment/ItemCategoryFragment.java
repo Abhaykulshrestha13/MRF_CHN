@@ -54,7 +54,7 @@ public class ItemCategoryFragment extends Fragment implements GetResult.MyListen
 
     List<String> catlistList;
     public static List<Cplist> cplists = new ArrayList<>();
-    int pogition = 0;
+    int position = 0;
 
     public ItemCategoryFragment() {
     }
@@ -82,10 +82,10 @@ public class ItemCategoryFragment extends Fragment implements GetResult.MyListen
         View view = inflater.inflate(R.layout.fragment_item_category, container, false);
         ButterKnife.bind(this, view);
         if (getArguments() != null) {
-            pogition = getArguments().getInt("position");
+            position = getArguments().getInt("position");
 
         }
-        Log.e("poprererer", "--" + pogition);
+        Log.e("poprererer", "--" + position);
         getCategory();
         return view;
     }
@@ -124,7 +124,7 @@ public class ItemCategoryFragment extends Fragment implements GetResult.MyListen
                 }
 
                 Handler handler1 = new Handler();
-                handler1.postDelayed(() -> vpPager.setCurrentItem(pogition), 200);
+                handler1.postDelayed(() -> vpPager.setCurrentItem(position), 200);
 
                 myPagerAdapter.notifyAll();
             } catch (Exception e) {

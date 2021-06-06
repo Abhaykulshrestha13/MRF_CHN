@@ -30,18 +30,18 @@ public class SliderItemFragment extends Fragment {
 //      };
   // prepare all subtitle images arrays
 //  @StringRes
-//  private static final int[] PAGE_IMAGE =
-//      new int[] {
-//          R.drawable.fastest_delivery, R.drawable.fresh_food,
-////              R.drawable.ic_offers, R.drawable.ic_reward
-//      };
+  private static final int[] PAGE_IMAGE =
+      new int[] {
+          R.drawable.fastest_delivery, R.drawable.fresh_food,
+//              R.drawable.ic_offers, R.drawable.ic_reward
+      };
 
   // prepare all background images arrays
-  @StringRes
-  private static final int[] BG_IMAGE = new int[] {
-      R.drawable.fastest_delivery, R.drawable.fresh_food,
-//          R.drawable.ic_bg_green,      R.drawable.ic_bg_purple
-  };
+//  @StringRes
+//  private static final int[] BG_IMAGE = new int[] {
+//      R.drawable.fastest_delivery, R.drawable.fresh_food,
+////          R.drawable.ic_bg_green,      R.drawable.ic_bg_purple
+//  };
 
   private int position;
 
@@ -82,17 +82,17 @@ public class SliderItemFragment extends Fragment {
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     // set page background
-    view.setBackground(requireActivity().getDrawable(BG_IMAGE[position]));
+//    view.setBackground(requireActivity().getDrawable(BG_IMAGE[position]));
 
 //    TextView title = view.findViewById(R.id.textView);
 //    TextView titleText = view.findViewById(R.id.textView2);
-//    ImageView imageView = view.findViewById(R.id.imageView);
+    ImageView imageView = view.findViewById(R.id.imageView);
 
 //    // set page title
 //    title.setText(PAGE_TITLES[position]);
 //    // set page sub title text
 ////    titleText.setText(PAGE_TEXT[position]);
 //    // set page image
-//    imageView.setImageResource(PAGE_IMAGE[position]);
+    imageView.setImageResource(PAGE_IMAGE[position]);
   }
 }

@@ -35,4 +35,7 @@
     <string name="offers_text">Find great offers while you discover</string>
     <string name="rewards_text"><![CDATA[Free recharge coupons & more]]></string>
     <string name="get_started">Get Started</string>
+    <string name="enter_mobile_number">Enter mobile number</string>
+    <string name="generate_otp">Generate OTP</string>
+
 </resources>

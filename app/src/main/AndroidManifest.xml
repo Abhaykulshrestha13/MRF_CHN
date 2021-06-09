@@ -60,12 +60,18 @@
             android:screenOrientation="portrait"
             android:theme="@style/HomeTheme"
             tools:ignore="LockedOrientationActivity" />
-
-        <activity android:name=".activity.OtpLoginActivity"
+        <activity
+            android:name=".activity.OtpLoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            tools:ignore="LockedOrientationActivity" />
-
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".activity.OtpVerifyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".MainActivity1"
             android:screenOrientation="portrait"

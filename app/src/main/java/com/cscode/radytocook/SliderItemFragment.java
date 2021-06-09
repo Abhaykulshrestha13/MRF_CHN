@@ -32,7 +32,7 @@ public class SliderItemFragment extends Fragment {
 //  @StringRes
   private static final int[] PAGE_IMAGE =
       new int[] {
-          R.drawable.fastest_delivery, R.drawable.fresh_food,
+          R.drawable.fresh_food,  R.drawable.fastest_delivery,
 //              R.drawable.ic_offers, R.drawable.ic_reward
       };
 

@@ -104,7 +104,7 @@ public class OtpLoginActivity extends AppCompatActivity{
                                     buttonVerify.setVisibility(View.VISIBLE);
                                     if(task.isSuccessful()){
                                         Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(intent);
                                     }else {
                                         Toast.makeText(OtpLoginActivity.this,"The verification code entered was invalid",Toast.LENGTH_SHORT).show();

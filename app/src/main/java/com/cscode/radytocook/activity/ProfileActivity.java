@@ -36,8 +36,8 @@ public class ProfileActivity extends AppCompatActivity implements GetResult.MyLi
     EditText edFname;
     @BindView(R.id.ed_lname)
     EditText edLname;
-    @BindView(R.id.ed_email)
-    EditText edEmail;
+//    @BindView(R.id.edit_email)
+//    EditText edEmail;
     @BindView(R.id.ed_phone)
     EditText edPhone;
     //    @BindView(R.id.ed_password)
@@ -63,14 +63,21 @@ public class ProfileActivity extends AppCompatActivity implements GetResult.MyLi
         getSupportActionBar().setTitle("My Profile");
         userData = sessionManager.getUserDetails("user");
         if (userData != null) {
-            txtProfilename.setText("" + userData.getFname() + " " + userData.getLname());
-            txtCity.setText("" + userData.getCity());
-            edFname.setText("" + userData.getFname());
-            edLname.setText("" + userData.getLname());
-            edEmail.setText("" + userData.getEmail());
-            edPhone.setText("" + userData.getMobile());
-//            edPassword.setText("" + userData.getPassword());
+            if(userData.getFname() == userData.getMobile() ){
+                txtProfilename.setText("");
+//            txtCity.setText("" + userData.getCity());
+                edFname.setText("");
+                edLname.setText("");
+            } else {
+                txtProfilename.setText("" + userData.getFname() + " " + userData.getLname());
+//            txtCity.setText("" + userData.getCity());
+                edFname.setText("" + userData.getFname());
+                edLname.setText("" + userData.getLname());
+//            edEmail.setText("" + userData.getCity());
 
+//            edPassword.setText("" + userData.getPassword());
+            }
+            edPhone.setText("" + userData.getMobile());
         }
     }
 
@@ -94,8 +101,8 @@ public class ProfileActivity extends AppCompatActivity implements GetResult.MyLi
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("uid", userData.getId());
-            jsonObject.put("email", edEmail.getText().toString());
-//            jsonObject.put("password", edPassword.getText().toString());
+            jsonObject.put("email", edPhone.getText().toString());
+            jsonObject.put("password", edPhone.getText().toString());
             jsonObject.put("mobile", edPhone.getText().toString());
             jsonObject.put("fname", edFname.getText().toString());
             jsonObject.put("lname", edLname.getText().toString());
@@ -127,10 +134,12 @@ public class ProfileActivity extends AppCompatActivity implements GetResult.MyLi
 
     public boolean isValidation() {
 
-        if (TextUtils.isEmpty(edEmail.getText().toString())) {
-            edEmail.setError("Required field");
-            return false;
-        } else if (TextUtils.isEmpty(edFname.getText().toString())) {
+//        if (TextUtils.isEmpty(edEmail.getText().toString())) {
+//            edEmail.setError("Required field");
+//            return false;
+//        } else
+
+            if (TextUtils.isEmpty(edFname.getText().toString())) {
             edFname.setError("Required field");
             return false;
         } else if (TextUtils.isEmpty(edLname.getText().toString())) {

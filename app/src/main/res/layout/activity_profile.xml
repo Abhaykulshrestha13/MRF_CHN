@@ -125,46 +125,46 @@
                     android:visibility="gone" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="5dp"-->
+<!--                android:gravity="center">-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:orientation="vertical">-->
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center|left"
-                        android:padding="3dp"
-                        android:text="Email" />
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="center|left"-->
+<!--                        android:padding="3dp"-->
+<!--                        android:text="Email" />-->
 
-                    <EditText
-                        android:id="@+id/ed_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:enabled="true"
-                        android:text=""
-                        android:textColor="@color/colorblack" />
-                </LinearLayout>
+<!--                    <EditText-->
+<!--                        android:id="@+id/edit_email"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:enabled="true"-->
+<!--                        android:text=""-->
+<!--                        android:textColor="@color/colorblack" />-->
+<!--                </LinearLayout>-->
 
-                <TextView
+<!--                <TextView-->
 
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3.5"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="Edit"
-                    android:textColor="@color/colorred"
-                    android:textStyle="bold"
-                    android:visibility="gone" />
-            </LinearLayout>
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="3.5"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="5dp"-->
+<!--                    android:text="Edit"-->
+<!--                    android:textColor="@color/colorred"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:visibility="gone" />-->
+<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"

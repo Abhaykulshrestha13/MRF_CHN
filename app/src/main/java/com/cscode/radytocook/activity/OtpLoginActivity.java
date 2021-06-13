@@ -42,20 +42,21 @@ import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 
-public class OtpLoginActivity extends AppCompatActivity{
+public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyListener {
 
     private EditText otp_textbox_one, otp_textbox_two, otp_textbox_three, otp_textbox_four, otp_textbox_five, otp_textbox_six;
-    private  String verificationId;
+    private String verificationId;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp_login);
 
-
+        sessionManager = new SessionManager(OtpLoginActivity.this);
         TextView textMobile = findViewById(R.id.textMobile);
         textMobile.setText(String.format(
-                "+91 - %s",getIntent().getStringExtra("mobile")
+                "+91 - %s", getIntent().getStringExtra("mobile")
         ));
 
         otp_textbox_one = findViewById(R.id.otp_edit_box1);
@@ -75,13 +76,13 @@ public class OtpLoginActivity extends AppCompatActivity{
         buttonVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(otp_textbox_one.getText().toString().trim().isEmpty()||
-                        otp_textbox_two.getText().toString().trim().isEmpty()||
-                        otp_textbox_three.getText().toString().trim().isEmpty()||
-                        otp_textbox_four.getText().toString().trim().isEmpty()||
-                        otp_textbox_five.getText().toString().trim().isEmpty()||
-                        otp_textbox_six.getText().toString().trim().isEmpty()){
-                    Toast.makeText(OtpLoginActivity.this,"Please enter valid code",Toast.LENGTH_SHORT).show();
+                if (otp_textbox_one.getText().toString().trim().isEmpty() ||
+                        otp_textbox_two.getText().toString().trim().isEmpty() ||
+                        otp_textbox_three.getText().toString().trim().isEmpty() ||
+                        otp_textbox_four.getText().toString().trim().isEmpty() ||
+                        otp_textbox_five.getText().toString().trim().isEmpty() ||
+                        otp_textbox_six.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(OtpLoginActivity.this, "Please enter valid code", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 String code = otp_textbox_one.getText().toString() +
@@ -90,53 +91,119 @@ public class OtpLoginActivity extends AppCompatActivity{
                         otp_textbox_four.getText().toString() +
                         otp_textbox_five.getText().toString() +
                         otp_textbox_six.getText().toString();
-                if(verificationId != null)
+                if (verificationId != null)
                     progressBar.setVisibility(View.VISIBLE);
-                    buttonVerify.setVisibility(View.INVISIBLE);
-                    PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.getCredential(
-                            verificationId,code
-                    );
-                    FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
-                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    progressBar.setVisibility(View.GONE);
-                                    buttonVerify.setVisibility(View.VISIBLE);
-                                    if(task.isSuccessful()){
-                                        Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-//                                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                        startActivity(intent);
-                                    }else {
-                                        Toast.makeText(OtpLoginActivity.this,"The verification code entered was invalid",Toast.LENGTH_SHORT).show();
+                buttonVerify.setVisibility(View.INVISIBLE);
+                PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.getCredential(
+                        verificationId, code
+                );
+                FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                progressBar.setVisibility(View.GONE);
+                                buttonVerify.setVisibility(View.VISIBLE);
+                                if (task.isSuccessful()) {
+                                    {
+                                        FirebaseUser user = task.getResult().getUser();
+
+                                        long creationTimestamp = user.getMetadata().getCreationTimestamp();
+                                        long lastSignInTimestamp = user.getMetadata().getLastSignInTimestamp();
+                                        String phoneNumber = getIntent().getStringExtra("mobile");
+                                        if (creationTimestamp == lastSignInTimestamp) {
+                                            //do create new user
+                                            signUp(phoneNumber);
+                                        }
+                                            //user is exists, just do login
+//                                            signUp(phoneNumber);
+                                            login(phoneNumber);
 
                                     }
 
+                                } else {
+                                    Toast.makeText(OtpLoginActivity.this, "The verification code entered was invalid", Toast.LENGTH_SHORT).show();
+
                                 }
-                            });
+
+                            }
+                        });
 
             }
         });
 
-}
-    private void setupOtpInputs(){
-        otp_textbox_one.addTextChangedListener(new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+    }
 
+    private void signUp(String number) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("fname", number);
+            jsonObject.put("lname", number);
+            jsonObject.put("email", number);
+            jsonObject.put("password", number);
+            jsonObject.put("mobile", number);
+            jsonObject.put("city", number);
+
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().getSignUp((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.callForLogin(call, "1");
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+    }
 
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if(!s.toString().trim().isEmpty()){
-                otp_textbox_two.requestFocus();
+    private void login(String phoneNumber) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("email", phoneNumber);
+            jsonObject.put("password", phoneNumber);
+
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().getSignIn((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.callForLogin(call, "1");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void callback(JsonObject result, String callNo) {
+        GetService.close();
+        if (callNo.equalsIgnoreCase("1") || result.toString().length() != 0) {
+            Gson gson = new Gson();
+            User response = gson.fromJson(result.toString(), User.class);
+//            GetService.ToastMessege(SignUpActivity.this, response.getResponseMsg());
+            if (response.getResult().equalsIgnoreCase("true")) {
+                sessionManager.setUserDetails("", response.getResultData());
+                sessionManager.setBooleanData(SessionManager.USERLOGIN, true);
+                startActivity(new Intent(OtpLoginActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                finish();
             }
         }
+    }
 
-        @Override
-        public void afterTextChanged(Editable s) {
+    private void setupOtpInputs() {
+        otp_textbox_one.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        }
-    });
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!s.toString().trim().isEmpty()) {
+                    otp_textbox_two.requestFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         otp_textbox_two.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -145,7 +212,7 @@ public class OtpLoginActivity extends AppCompatActivity{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!s.toString().trim().isEmpty()){
+                if (!s.toString().trim().isEmpty()) {
                     otp_textbox_three.requestFocus();
                 }
             }
@@ -163,7 +230,7 @@ public class OtpLoginActivity extends AppCompatActivity{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!s.toString().trim().isEmpty()){
+                if (!s.toString().trim().isEmpty()) {
                     otp_textbox_four.requestFocus();
                 }
             }
@@ -181,7 +248,7 @@ public class OtpLoginActivity extends AppCompatActivity{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!s.toString().trim().isEmpty()){
+                if (!s.toString().trim().isEmpty()) {
                     otp_textbox_five.requestFocus();
                 }
             }
@@ -199,7 +266,7 @@ public class OtpLoginActivity extends AppCompatActivity{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!s.toString().trim().isEmpty()){
+                if (!s.toString().trim().isEmpty()) {
                     otp_textbox_six.requestFocus();
                 }
             }
@@ -212,16 +279,6 @@ public class OtpLoginActivity extends AppCompatActivity{
 
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 //public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyListener {
@@ -459,19 +516,5 @@ public class OtpLoginActivity extends AppCompatActivity{
 //        // calling sign in method.
 //        signInWithCredential(credential);
 //    }
-//    @Override
-//    public void callback(JsonObject result, String callNo) {
-//        GetService.close();
-//        if (callNo.equalsIgnoreCase("1") || result.toString().length() != 0) {
-//            Gson gson = new Gson();
-//            User response = gson.fromJson(result.toString(), User.class);
-//            GetService.ToastMessege(OtpLoginActivity.this, response.getResponseMsg());
-//            if (response.getResult().equalsIgnoreCase("true")) {
-//                sessionManager.setUserDetails("user", response.getResultData());
-//                sessionManager.setBooleanData(SessionManager.USERLOGIN, true);
-//                startActivity(new Intent(OtpLoginActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
-//                finish();
-//            }
-//        }
-//    }
+
 //}

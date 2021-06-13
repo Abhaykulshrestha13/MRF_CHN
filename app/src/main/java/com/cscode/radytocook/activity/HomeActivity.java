@@ -31,17 +31,17 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class HomeActivity extends AppCompatActivity {
-
-    @BindView(R.id.myprofile)
-    LinearLayout myprofile;
+//
+//    @BindView(R.id.myprofile)
+//    LinearLayout myprofile;
     @BindView(R.id.myoder)
     LinearLayout myoder;
     @BindView(R.id.address)
     LinearLayout address;
     @BindView(R.id.contect)
     LinearLayout contect;
-    @BindView(R.id.logout)
-    LinearLayout logout;
+//    @BindView(R.id.logout)
+//    LinearLayout logout;
     @BindView(R.id.about)
     LinearLayout about;
     @BindView(R.id.tramscondition)
@@ -107,7 +107,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void data() {
-        UserData user = sessionManager.getUserDetails("user");
+        UserData user = sessionManager.getUserDetails("");
         if (user == null) {
             txtfirstl.setText("");
             txtName.setText("");
@@ -117,10 +117,15 @@ public class HomeActivity extends AppCompatActivity {
 
             char first = user.getFname().charAt(0);
             Log.e("first", "-->" + first);
-            txtfirstl.setText("" + first);
-            txtName.setText("" + user.getFname());
+            if(user.getMobile().equals(user.getFname())){
+                txtfirstl.setText("");
+                txtName.setText("");
+            } else {
+                txtfirstl.setText("" + first);
+                txtName.setText("" + user.getFname());
+            }
             txtMob.setText("" + user.getMobile());
-            txtEmail.setText("" + user.getEmail());
+//            txtEmail.setText("" + user.getCity());
         }
     }
     public static void notificationCount(int i) {
@@ -133,16 +138,17 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.home, R.id.myprofile, R.id.myoder, R.id.address, R.id.contect, R.id.logout, R.id.about, R.id.tramscondition, R.id.privecy, R.id.faq, R.id.img_search, R.id.img_cart, R.id.img_close, R.id.btn_gotocart, R.id.img_notification})
-    public void onViewClicked(View view) {
+//    @OnClick({R.id.home, R.id.myprofile, R.id.myoder, R.id.address, R.id.contect, R.id.logout, R.id.about, R.id.tramscondition, R.id.privecy, R.id.faq, R.id.img_search, R.id.img_cart, R.id.img_close, R.id.btn_gotocart, R.id.img_notification})
+@OnClick({R.id.home, R.id.myoder, R.id.address, R.id.contect, R.id.about, R.id.tramscondition, R.id.privecy, R.id.faq, R.id.img_search, R.id.img_cart, R.id.img_close, R.id.btn_gotocart, R.id.img_notification})
+public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.home:
                 HomeFragment fragment = new HomeFragment();
                 fragment(fragment);
                 break;
-            case R.id.myprofile:
-                startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
-                break;
+//            case R.id.myprofile:
+//                startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+//                break;
             case R.id.myoder:
                 startActivity(new Intent(HomeActivity.this, MyordersActivity.class));
                 break;
@@ -152,11 +158,11 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.contect:
                 startActivity(new Intent(HomeActivity.this, ContectusActivity.class));
                 break;
-            case R.id.logout:
-                sessionManager.logoutUser();
-                startActivity(new Intent(HomeActivity.this, SignUpActivity.class));
-                finish();
-                break;
+//            case R.id.logout:
+//                sessionManager.logoutUser();
+//                startActivity(new Intent(HomeActivity.this, OtpVerifyActivity.class));
+//                finish();
+//                break;
             case R.id.about:
                 startActivity(new Intent(HomeActivity.this, AboutsActivity.class));
                 break;

@@ -61,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity implements GetResult.MyLi
         sessionManager = new SessionManager(ProfileActivity.this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("My Profile");
-        userData = sessionManager.getUserDetails("user");
+        userData = sessionManager.getUserDetails("");
         if (userData != null) {
             if(userData.getFname() == userData.getMobile() ){
                 txtProfilename.setText("");

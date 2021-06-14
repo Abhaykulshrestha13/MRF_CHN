@@ -59,7 +59,7 @@ public class UpdateAddressActivity extends AppCompatActivity implements GetResul
         sessionManager = new SessionManager(UpdateAddressActivity.this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Address");
-        user = sessionManager.getUserDetails("user");
+        user = sessionManager.getUserDetails("");
         address = (Address) getIntent().getSerializableExtra("MyClass");
         if (address != null) {
             edType.setText("" + address.getType());

@@ -65,7 +65,7 @@ public class AddressActivity extends AppCompatActivity implements GetResult.MyLi
         recycleAddress.setLayoutManager(recyclerLayoutManager);
         sessionManager = new SessionManager(AddressActivity.this);
         userData = new UserData();
-        userData = sessionManager.getUserDetails("user");
+        userData = sessionManager.getUserDetails("");
         getAddress();
     }
 

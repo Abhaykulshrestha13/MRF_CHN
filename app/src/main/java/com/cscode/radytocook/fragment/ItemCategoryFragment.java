@@ -71,7 +71,7 @@ public class ItemCategoryFragment extends Fragment implements GetResult.MyListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sessionManager = new SessionManager(getActivity());
-        userData = sessionManager.getUserDetails("user");
+        userData = sessionManager.getUserDetails("");
         catlistList = new ArrayList<>();
     }
 

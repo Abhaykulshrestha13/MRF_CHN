@@ -63,7 +63,7 @@ public class CategoryFragment extends Fragment implements GetResult.MyListener {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
         ButterKnife.bind(this, view);
         sessionManager = new SessionManager(getActivity());
-        userData = sessionManager.getUserDetails("user");
+        userData = sessionManager.getUserDetails("");
         reyCategory.setHasFixedSize(true);
         reyCategory.setLayoutManager(new GridLayoutManager(getActivity(), 3));
 

@@ -47,7 +47,7 @@ public class RazerpayActivity extends AppCompatActivity implements GetResult.MyL
         ButterKnife.bind(this);
         sessionManager = new SessionManager(this);
         helper = new DatabaseHelper(RazerpayActivity.this);
-        userData = sessionManager.getUserDetails("user");
+        userData = sessionManager.getUserDetails("");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             aid = extras.getString("aid");

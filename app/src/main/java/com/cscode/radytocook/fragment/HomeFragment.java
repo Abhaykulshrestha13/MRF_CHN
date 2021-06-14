@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment implements GetResult.MyListener {
         ButterKnife.bind(this, view);
         sessionManager = new SessionManager(getActivity());
         userData = new UserData();
-        userData = sessionManager.getUserDetails("user");
+        userData = sessionManager.getUserDetails("");
 
         viewpager.startAutoScroll();
         viewpager.setInterval(4000);

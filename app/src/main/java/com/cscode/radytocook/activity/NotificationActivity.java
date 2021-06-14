@@ -55,7 +55,7 @@ public class NotificationActivity extends AppCompatActivity implements GetResult
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Notification");
         sessionManager = new SessionManager(NotificationActivity.this);
-        user = sessionManager.getUserDetails("user");
+        user = sessionManager.getUserDetails("");
         getNotification();
     }
 

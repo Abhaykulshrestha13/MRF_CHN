@@ -65,7 +65,7 @@ public class MyordersActivity extends AppCompatActivity implements GetResult.MyL
 
         userData = new UserData();
         sessionManager = new SessionManager(MyordersActivity.this);
-        userData = sessionManager.getUserDetails("user");
+        userData = sessionManager.getUserDetails("");
 
         LinearLayoutManager recyclerLayoutManager = new LinearLayoutManager(MyordersActivity.this);
         recycleAddress.setLayoutManager(recyclerLayoutManager);

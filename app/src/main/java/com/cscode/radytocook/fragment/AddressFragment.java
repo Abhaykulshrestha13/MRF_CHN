@@ -79,7 +79,7 @@ public class AddressFragment extends Fragment implements GetResult.MyListener {
         ButterKnife.bind(this, view);
         user = new UserData();
         sessionManager = new SessionManager(getActivity());
-        user = sessionManager.getUserDetails("user");
+        user = sessionManager.getUserDetails("");
 
         LinearLayoutManager recyclerLayoutManager = new LinearLayoutManager(getActivity());
         recycleAddress.setLayoutManager(recyclerLayoutManager);

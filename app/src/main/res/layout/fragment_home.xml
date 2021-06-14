@@ -44,7 +44,44 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="Food Types"
+                    android:text="Best Sellers"
+                    android:textColor="@color/colorblack"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_popular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:drawableRight="@drawable/rights"
+                    android:drawablePadding="5dp"
+                    android:gravity="right|center"
+                    android:padding="5dp"
+                    android:text="View all"
+                    android:textColor="@color/colorblack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rey_popular"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Explore by Category"
                     android:textColor="@color/colorblack"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -73,43 +110,6 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="5dp"
-                    android:text="Most Popular"
-                    android:textColor="@color/colorblack"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txt_popular"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:drawableRight="@drawable/rights"
-                    android:drawablePadding="5dp"
-                    android:gravity="right|center"
-                    android:padding="5dp"
-                    android:text="View all"
-                    android:textColor="@color/colorblack" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rey_popular"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

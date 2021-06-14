@@ -104,7 +104,6 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
                                 progressBar.setVisibility(View.GONE);
                                 buttonVerify.setVisibility(View.VISIBLE);
                                 if (task.isSuccessful()) {
-                                    {
                                         FirebaseUser user = task.getResult().getUser();
 
                                         long creationTimestamp = user.getMetadata().getCreationTimestamp();
@@ -118,9 +117,7 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
 //                                            signUp(phoneNumber);
                                             login(phoneNumber);
 
-                                    }
-
-                                } else {
+                                    }else {
                                     Toast.makeText(OtpLoginActivity.this, "The verification code entered was invalid", Toast.LENGTH_SHORT).show();
 
                                 }

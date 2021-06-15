@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "300021539722",
-    "project_id": "rady-to-cook",
-    "storage_bucket": "rady-to-cook.appspot.com"
+    "project_number": "991388753574",
+    "project_id": "com-mrf-app",
+    "storage_bucket": "com-mrf-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:300021539722:android:d4a6707b704e70bef3de73",
+        "mobilesdk_app_id": "1:991388753574:android:42122ba1859d6473a61e67",
         "android_client_info": {
           "package_name": "com.mrf.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "300021539722-mk4vqebqrjlkk019ueimn82iqd6mlsjm.apps.googleusercontent.com",
+          "client_id": "991388753574-0ji13ksakdpcmg28eregg7nq5kj97ldg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.mrf.app",
-            "certificate_hash": "58e8859db1dd3242b3e14b41f4595bc3dc7ce845"
+            "certificate_hash": "e832028b720340465a439dff242838bb5c84f893"
           }
         },
         {
-          "client_id": "300021539722-nrndqv90unll338kos1t36tvpahjm4co.apps.googleusercontent.com",
+          "client_id": "991388753574-rhhto2dupr4krunuf9elljmen6ukbara.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCdNcy82oakYLvLr-wKkfd4ZkCza0BrReU"
+          "current_key": "AIzaSyDwAy8e7na1xIkfMt8ikcVlK00dKCZA3PQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "300021539722-nrndqv90unll338kos1t36tvpahjm4co.apps.googleusercontent.com",
+              "client_id": "991388753574-rhhto2dupr4krunuf9elljmen6ukbara.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

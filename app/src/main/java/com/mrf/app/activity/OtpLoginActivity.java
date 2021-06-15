@@ -67,59 +67,51 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
 
         verificationId = getIntent().getStringExtra("verificationId");
 
-        buttonVerify.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (otp_textbox_one.getText().toString().trim().isEmpty() ||
-                        otp_textbox_two.getText().toString().trim().isEmpty() ||
-                        otp_textbox_three.getText().toString().trim().isEmpty() ||
-                        otp_textbox_four.getText().toString().trim().isEmpty() ||
-                        otp_textbox_five.getText().toString().trim().isEmpty() ||
-                        otp_textbox_six.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(OtpLoginActivity.this, "Please enter valid code", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                String code = otp_textbox_one.getText().toString() +
-                        otp_textbox_two.getText().toString() +
-                        otp_textbox_three.getText().toString() +
-                        otp_textbox_four.getText().toString() +
-                        otp_textbox_five.getText().toString() +
-                        otp_textbox_six.getText().toString();
-                if (verificationId != null)
-                    progressBar.setVisibility(View.VISIBLE);
-                buttonVerify.setVisibility(View.INVISIBLE);
-                PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.getCredential(
-                        verificationId, code
-                );
-                FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
-                                buttonVerify.setVisibility(View.VISIBLE);
-                                if (task.isSuccessful()) {
-                                        FirebaseUser user = task.getResult().getUser();
-
-                                        long creationTimestamp = user.getMetadata().getCreationTimestamp();
-                                        long lastSignInTimestamp = user.getMetadata().getLastSignInTimestamp();
-                                        String phoneNumber = getIntent().getStringExtra("mobile");
-                                        if (creationTimestamp == lastSignInTimestamp) {
-                                            //do create new user
-                                            signUp(phoneNumber);
-                                        }
-                                            //user is exists, just do login
-//                                            signUp(phoneNumber);
-                                            login(phoneNumber);
-
-                                    }else {
-                                    Toast.makeText(OtpLoginActivity.this, "The verification code entered was invalid", Toast.LENGTH_SHORT).show();
-
-                                }
-
-                            }
-                        });
-
+        buttonVerify.setOnClickListener(v -> {
+            if (otp_textbox_one.getText().toString().trim().isEmpty() ||
+                    otp_textbox_two.getText().toString().trim().isEmpty() ||
+                    otp_textbox_three.getText().toString().trim().isEmpty() ||
+                    otp_textbox_four.getText().toString().trim().isEmpty() ||
+                    otp_textbox_five.getText().toString().trim().isEmpty() ||
+                    otp_textbox_six.getText().toString().trim().isEmpty()) {
+                Toast.makeText(OtpLoginActivity.this, "Please enter valid code", Toast.LENGTH_SHORT).show();
+                return;
             }
+            String code = otp_textbox_one.getText().toString() +
+                    otp_textbox_two.getText().toString() +
+                    otp_textbox_three.getText().toString() +
+                    otp_textbox_four.getText().toString() +
+                    otp_textbox_five.getText().toString() +
+                    otp_textbox_six.getText().toString();
+            if (verificationId != null)
+                progressBar.setVisibility(View.VISIBLE);
+            buttonVerify.setVisibility(View.INVISIBLE);
+            PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.getCredential(
+                    verificationId, code
+            );
+            FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
+                    .addOnCompleteListener(task -> {
+                        progressBar.setVisibility(View.GONE);
+                        buttonVerify.setVisibility(View.VISIBLE);
+                        if (task.isSuccessful()) {
+//                                FirebaseUser user = task.getResult().getUser();
+                            String phoneNumber = getIntent().getStringExtra("mobile");
+                            boolean isNewUser = task.getResult().getAdditionalUserInfo().isNewUser();
+                            if (isNewUser) {
+                                //do create new user
+                                signUp(phoneNumber);
+                            }
+                            //user is exists, just do login
+//                                            signUp(phoneNumber);
+                            login(phoneNumber);
+
+                        } else {
+                            Toast.makeText(OtpLoginActivity.this, "The verification code entered was invalid", Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    });
+
         });
 
     }

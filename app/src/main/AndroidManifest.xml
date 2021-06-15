@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.cscode.radytocook">
+    package="com.mrf.app">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".MyApplication"
+        android:name="com.mrf.app.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,67 +18,67 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name=".activity.FAQActivity"
+            android:name="com.mrf.app.activity.FAQActivity"
             android:screenOrientation="portrait"
             android:theme="@style/them2"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activity.ForgotActivity"
+            android:name="com.mrf.app.activity.ForgotActivity"
             android:theme="@style/them3" />
-        <activity android:name=".activity.CongratulactionActivity" />
-        <activity android:name=".activity.SearchActivity" />
+        <activity android:name="com.mrf.app.activity.CongratulactionActivity" />
+        <activity android:name="com.mrf.app.activity.SearchActivity" />
         <activity
-            android:name=".activity.CodActivity"
+            android:name="com.mrf.app.activity.CodActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activity.UpdateAddressActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/them3"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".activity.AddressActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".activity.MyordersActivity"
+            android:name="com.mrf.app.activity.UpdateAddressActivity"
             android:screenOrientation="portrait"
             android:theme="@style/them3"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activity.ProfileActivity"
+            android:name="com.mrf.app.activity.AddressActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.mrf.app.activity.MyordersActivity"
             android:screenOrientation="portrait"
             android:theme="@style/them3"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activity.ItemDetailsActivity"
+            android:name="com.mrf.app.activity.ProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/them3"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.mrf.app.activity.ItemDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/DeatilsTheme"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activity.HomeActivity"
+            android:name="com.mrf.app.activity.HomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/HomeTheme"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activity.OtpLoginActivity"
+            android:name="com.mrf.app.activity.OtpLoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             tools:ignore="LockedOrientationActivity"
             android:windowSoftInputMode="adjustResize"/>
         <activity
-            android:name=".activity.OtpVerifyActivity"
+            android:name="com.mrf.app.activity.OtpVerifyActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             tools:ignore="LockedOrientationActivity"
             android:windowSoftInputMode="adjustResize"/>
         <activity
-            android:name=".MainActivity1"
+            android:name="com.mrf.app.MainActivity1"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activity.FirstActivity"
+            android:name="com.mrf.app.activity.FirstActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -87,38 +87,38 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.mrf.app.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".activity.RazerpayActivity" />
+        <activity android:name="com.mrf.app.activity.RazerpayActivity" />
         <activity
-            android:name=".activity.NotificationDetailsActivity"
+            android:name="com.mrf.app.activity.NotificationDetailsActivity"
             android:theme="@style/them3" />
         <activity
-            android:name=".activity.NotificationActivity"
+            android:name="com.mrf.app.activity.NotificationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/them3"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activity.TramsAndConditionActivity"
+            android:name="com.mrf.app.activity.TramsAndConditionActivity"
             android:label="Terms &amp; Conditions"
             android:screenOrientation="portrait"
             android:theme="@style/them3"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activity.ContectusActivity"
+            android:name="com.mrf.app.activity.ContectusActivity"
             android:label="Contact us"
             android:screenOrientation="portrait"
             android:theme="@style/them3"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activity.AboutsActivity"
+            android:name="com.mrf.app.activity.AboutsActivity"
             android:label="About"
             android:screenOrientation="portrait"
             android:theme="@style/them3"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activity.PrivecyPolicyActivity"
+            android:name="com.mrf.app.activity.PrivecyPolicyActivity"
             android:label="Privecy Policy"
             android:screenOrientation="portrait"
             android:theme="@style/them3"

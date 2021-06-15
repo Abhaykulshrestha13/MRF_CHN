@@ -124,7 +124,7 @@ public class ProfileActivity extends AppCompatActivity implements GetResult.MyLi
             Gson gson = new Gson();
             User response = gson.fromJson(result.toString(), User.class);
             if (response.getResult().equalsIgnoreCase("true")) {
-                sessionManager.setUserDetails("user", response.getResultData());
+                sessionManager.setUserDetails("", response.getResultData());
                 finish();
             }
             Toast.makeText(ProfileActivity.this, response.getResponseMsg(), Toast.LENGTH_LONG).show();

@@ -104,7 +104,7 @@ public class SignUpActivity extends AppCompatActivity implements GetResult.MyLis
             User response = gson.fromJson(result.toString(), User.class);
 //            GetService.ToastMessege(SignUpActivity.this, response.getResponseMsg());
             if (response.getResult().equalsIgnoreCase("true")) {
-                sessionManager.setUserDetails("user", response.getResultData());
+                sessionManager.setUserDetails("", response.getResultData());
                 sessionManager.setBooleanData(SessionManager.USERLOGIN, true);
                 startActivity(new Intent(SignUpActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 finish();

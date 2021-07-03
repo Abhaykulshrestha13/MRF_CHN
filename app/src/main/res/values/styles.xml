@@ -69,6 +69,12 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="contactus" parent="TextAppearance.AppCompat.Body1">
+        <item name="fontFamily">@font/acme</item>
+        <item name="android:fontFamily">@font/acme</item>
+        <item name="android:textColor">@color/colorblack</item>
+    </style>
+
     <style name="MyTheme" parent="@android:style/TextAppearance">
         <item name="android:textColor">#ffffffff</item>
         <item name="android:textSize">12dp</item>

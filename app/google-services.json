@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "991388753574-0ji13ksakdpcmg28eregg7nq5kj97ldg.apps.googleusercontent.com",
+          "client_id": "991388753574-15ue2tgbtca29h6ob6akd2r4a8ia4d2o.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.mrf.app",
-            "certificate_hash": "e832028b720340465a439dff242838bb5c84f893"
+            "certificate_hash": "47cef7477a62ae67a07caad9f73ffc0834445192"
           }
         },
         {

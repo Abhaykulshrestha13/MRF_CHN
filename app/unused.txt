@@ -19167,6 +19167,7 @@ com.mrf.app.BuildConfig
 com.mrf.app.Notification.MyFirebaseMessagingService
 com.mrf.app.R$anim
 com.mrf.app.R$animator
+com.mrf.app.R$array
 com.mrf.app.R$attr
 com.mrf.app.R$bool
 com.mrf.app.R$color
@@ -19197,9 +19198,6 @@ com.mrf.app.activity.AddressActivity_ViewBinding:
     public void unbind()
 com.mrf.app.activity.CongratulactionActivity_ViewBinding:
     public void <init>(com.mrf.app.activity.CongratulactionActivity)
-    public void unbind()
-com.mrf.app.activity.ContectusActivity_ViewBinding:
-    public void <init>(com.mrf.app.activity.ContectusActivity)
     public void unbind()
 com.mrf.app.activity.FAQActivity_ViewBinding:
     public void <init>(com.mrf.app.activity.FAQActivity)
@@ -32708,9 +32706,9 @@ com.mrf.app.activity.AddressActivity_ViewBinding$3:
     public final synthetic com.mrf.app.activity.AddressActivity_ViewBinding this$0
 com.mrf.app.activity.AddressActivity_ViewBinding:
     public com.mrf.app.activity.AddressActivity target
-    public android.view.View view7f090062
-    public android.view.View view7f0900f0
-    public android.view.View view7f0900f3
+    public android.view.View view7f0a0062
+    public android.view.View view7f0a00f0
+    public android.view.View view7f0a00f3
 com.mrf.app.activity.CodActivity:
     public final void sendOrder()
 com.mrf.app.activity.CongratulactionActivity_ViewBinding$1:
@@ -32719,15 +32717,13 @@ com.mrf.app.activity.CongratulactionActivity_ViewBinding$2:
     public final synthetic com.mrf.app.activity.CongratulactionActivity_ViewBinding this$0
 com.mrf.app.activity.CongratulactionActivity_ViewBinding:
     public com.mrf.app.activity.CongratulactionActivity target
-    public android.view.View view7f090068
-    public android.view.View view7f0900f0
-com.mrf.app.activity.ContectusActivity_ViewBinding:
-    public com.mrf.app.activity.ContectusActivity target
+    public android.view.View view7f0a0068
+    public android.view.View view7f0a00f0
 com.mrf.app.activity.FAQActivity_ViewBinding$1:
     public final synthetic com.mrf.app.activity.FAQActivity_ViewBinding this$0
 com.mrf.app.activity.FAQActivity_ViewBinding:
     public com.mrf.app.activity.FAQActivity target
-    public android.view.View view7f0900f0
+    public android.view.View view7f0a00f0
 com.mrf.app.activity.FirstActivity:
     private void lambda$onCreate$0()
     public void lambda$onCreate$0$FirstActivity()
@@ -32740,7 +32736,7 @@ com.mrf.app.activity.ForgotActivity_ViewBinding$1:
     public final synthetic com.mrf.app.activity.ForgotActivity_ViewBinding this$0
 com.mrf.app.activity.ForgotActivity_ViewBinding:
     public com.mrf.app.activity.ForgotActivity target
-    public android.view.View view7f090069
+    public android.view.View view7f0a0069
 com.mrf.app.activity.HomeActivity_ViewBinding$10:
     public final synthetic com.mrf.app.activity.HomeActivity_ViewBinding this$0
 com.mrf.app.activity.HomeActivity_ViewBinding$11:
@@ -32769,19 +32765,19 @@ com.mrf.app.activity.HomeActivity_ViewBinding$9:
     public final synthetic com.mrf.app.activity.HomeActivity_ViewBinding this$0
 com.mrf.app.activity.HomeActivity_ViewBinding:
     public com.mrf.app.activity.HomeActivity target
-    public android.view.View view7f09000e
-    public android.view.View view7f090046
-    public android.view.View view7f090065
-    public android.view.View view7f090085
-    public android.view.View view7f0900c9
-    public android.view.View view7f0900df
-    public android.view.View view7f0900f1
-    public android.view.View view7f0900f2
-    public android.view.View view7f0900f9
-    public android.view.View view7f0900fb
-    public android.view.View view7f090155
-    public android.view.View view7f09017d
-    public android.view.View view7f0901ff
+    public android.view.View view7f0a000e
+    public android.view.View view7f0a0046
+    public android.view.View view7f0a0065
+    public android.view.View view7f0a0085
+    public android.view.View view7f0a00c9
+    public android.view.View view7f0a00df
+    public android.view.View view7f0a00f1
+    public android.view.View view7f0a00f2
+    public android.view.View view7f0a00f9
+    public android.view.View view7f0a00fb
+    public android.view.View view7f0a0155
+    public android.view.View view7f0a017d
+    public android.view.View view7f0a01ff
 com.mrf.app.activity.ItemDetailsActivity:
     public void fragment()
 com.mrf.app.activity.ItemDetailsActivity_ViewBinding$1:
@@ -32798,20 +32794,20 @@ com.mrf.app.activity.ItemDetailsActivity_ViewBinding$6:
     public final synthetic com.mrf.app.activity.ItemDetailsActivity_ViewBinding this$0
 com.mrf.app.activity.ItemDetailsActivity_ViewBinding:
     public com.mrf.app.activity.ItemDetailsActivity target
-    public android.view.View view7f090063
-    public android.view.View view7f0900ef
-    public android.view.View view7f0900f0
-    public android.view.View view7f0900f1
-    public android.view.View view7f0900f4
-    public android.view.View view7f0900f7
+    public android.view.View view7f0a0063
+    public android.view.View view7f0a00ef
+    public android.view.View view7f0a00f0
+    public android.view.View view7f0a00f1
+    public android.view.View view7f0a00f4
+    public android.view.View view7f0a00f7
 com.mrf.app.activity.LoginstartActivity_ViewBinding$1:
     public final synthetic com.mrf.app.activity.LoginstartActivity_ViewBinding this$0
 com.mrf.app.activity.LoginstartActivity_ViewBinding$2:
     public final synthetic com.mrf.app.activity.LoginstartActivity_ViewBinding this$0
 com.mrf.app.activity.LoginstartActivity_ViewBinding:
     public com.mrf.app.activity.LoginstartActivity target
-    public android.view.View view7f090068
-    public android.view.View view7f09022d
+    public android.view.View view7f0a0068
+    public android.view.View view7f0a022c
 com.mrf.app.activity.MyordersActivity$MyOrderAdepter$1:
     public final synthetic com.mrf.app.activity.MyordersActivity$MyOrderAdepter this$1
 com.mrf.app.activity.MyordersActivity$MyOrderAdepter$ViewHolder:
@@ -32871,7 +32867,7 @@ com.mrf.app.activity.ProfileActivity_ViewBinding$1:
     public final synthetic com.mrf.app.activity.ProfileActivity_ViewBinding this$0
 com.mrf.app.activity.ProfileActivity_ViewBinding:
     public com.mrf.app.activity.ProfileActivity target
-    public android.view.View view7f09006a
+    public android.view.View view7f0a006a
 com.mrf.app.activity.RazerpayActivity:
     public final void sendOrder()
     public void startPayment(java.lang.String)
@@ -32883,8 +32879,8 @@ com.mrf.app.activity.SearchActivity_ViewBinding$2:
     public final synthetic com.mrf.app.activity.SearchActivity_ViewBinding this$0
 com.mrf.app.activity.SearchActivity_ViewBinding:
     public com.mrf.app.activity.SearchActivity target
-    public android.view.View view7f0900f0
-    public android.view.View view7f0900fb
+    public android.view.View view7f0a00f0
+    public android.view.View view7f0a00fb
 com.mrf.app.activity.SignInActivity:
     public boolean isValidation()
     public final void signUp()
@@ -32892,7 +32888,7 @@ com.mrf.app.activity.SignInActivity_ViewBinding$1:
     public final synthetic com.mrf.app.activity.SignInActivity_ViewBinding this$0
 com.mrf.app.activity.SignInActivity_ViewBinding:
     public com.mrf.app.activity.SignInActivity target
-    public android.view.View view7f090069
+    public android.view.View view7f0a0069
 com.mrf.app.activity.SignUpActivity:
     public boolean isValidation()
     public final void login()
@@ -32904,9 +32900,9 @@ com.mrf.app.activity.SignUpActivity_ViewBinding$3:
     public final synthetic com.mrf.app.activity.SignUpActivity_ViewBinding this$0
 com.mrf.app.activity.SignUpActivity_ViewBinding:
     public com.mrf.app.activity.SignUpActivity target
-    public android.view.View view7f090067
-    public android.view.View view7f090069
-    public android.view.View view7f090218
+    public android.view.View view7f0a0067
+    public android.view.View view7f0a0069
+    public android.view.View view7f0a0217
 com.mrf.app.activity.TramsAndConditionActivity_ViewBinding:
     public com.mrf.app.activity.TramsAndConditionActivity target
 com.mrf.app.activity.UpdateAddressActivity:
@@ -32916,7 +32912,7 @@ com.mrf.app.activity.UpdateAddressActivity_ViewBinding$1:
     public final synthetic com.mrf.app.activity.UpdateAddressActivity_ViewBinding this$0
 com.mrf.app.activity.UpdateAddressActivity_ViewBinding:
     public com.mrf.app.activity.UpdateAddressActivity target
-    public android.view.View view7f090069
+    public android.view.View view7f0a0069
 com.mrf.app.adepter.CategoryAdapter$ViewHolder_ViewBinding:
     public com.mrf.app.adepter.CategoryAdapter$ViewHolder target
 com.mrf.app.adepter.CategoryAdapter:
@@ -32959,7 +32955,7 @@ com.mrf.app.fragment.AddressFragment_ViewBinding$1:
     public final synthetic com.mrf.app.fragment.AddressFragment_ViewBinding this$0
 com.mrf.app.fragment.AddressFragment_ViewBinding:
     public com.mrf.app.fragment.AddressFragment target
-    public android.view.View view7f090062
+    public android.view.View view7f0a0062
 com.mrf.app.fragment.CategoryFragment:
     public final void getCategory()
 com.mrf.app.fragment.CategoryFragment_ViewBinding:
@@ -32973,8 +32969,8 @@ com.mrf.app.fragment.HomeFragment_ViewBinding$2:
     public final synthetic com.mrf.app.fragment.HomeFragment_ViewBinding this$0
 com.mrf.app.fragment.HomeFragment_ViewBinding:
     public com.mrf.app.fragment.HomeFragment target
-    public android.view.View view7f09020d
-    public android.view.View view7f090228
+    public android.view.View view7f0a020d
+    public android.view.View view7f0a0227
 com.mrf.app.fragment.ItemCategoryFragment$MyPagerAdapter:
     public final synthetic com.mrf.app.fragment.ItemCategoryFragment this$0
 com.mrf.app.fragment.ItemCategoryFragment:
@@ -32992,7 +32988,7 @@ com.mrf.app.fragment.ItemItemFragment_ViewBinding$1:
     public final synthetic com.mrf.app.fragment.ItemItemFragment_ViewBinding this$0
 com.mrf.app.fragment.ItemItemFragment_ViewBinding:
     public com.mrf.app.fragment.ItemItemFragment target
-    public android.view.View view7f090065
+    public android.view.View view7f0a0065
 com.mrf.app.fragment.MyCartFragment:
     public void Allcartget()
     public void total()
@@ -33000,7 +32996,7 @@ com.mrf.app.fragment.MyCartFragment_ViewBinding$1:
     public final synthetic com.mrf.app.fragment.MyCartFragment_ViewBinding this$0
 com.mrf.app.fragment.MyCartFragment_ViewBinding:
     public com.mrf.app.fragment.MyCartFragment target
-    public android.view.View view7f090066
+    public android.view.View view7f0a0066
 com.mrf.app.fragment.PopularFragment:
     public void fragment(androidx.fragment.app.Fragment)
     public final void getPopular()
@@ -33010,7 +33006,7 @@ com.mrf.app.fragment.SelectPaymentFragment_ViewBinding$1:
     public final synthetic com.mrf.app.fragment.SelectPaymentFragment_ViewBinding this$0
 com.mrf.app.fragment.SelectPaymentFragment_ViewBinding:
     public com.mrf.app.fragment.SelectPaymentFragment target
-    public android.view.View view7f090064
+    public android.view.View view7f0a0064
 com.mrf.app.model.Noti$1:
     public com.mrf.app.model.Noti createFromParcel(android.os.Parcel)
     public com.mrf.app.model.Noti[] newArray(int)

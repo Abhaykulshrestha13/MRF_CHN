@@ -37,5 +37,7 @@
     <string name="get_started">Get Started</string>
     <string name="enter_mobile_number">Enter mobile number</string>
     <string name="generate_otp">Generate OTP</string>
+    <string name="call_whatsapp_91_999456_for_home_delivery">Call/whatsapp +91 999456***** for Home delivery</string>
+    <string name="visit_our_stores_at_mg_road_fish_amp_meat"><![CDATA[Visit our stores at MG Road,Fish & Meat]]></string>
 
 </resources>

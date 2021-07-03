@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Call/whatsapp +91 999456***** for Home delivery "
+                android:text="@string/call_whatsapp_91_999456_for_home_delivery"
                 android:textColor="@color/colorblack" />
 
             <View
@@ -94,7 +94,7 @@
                 android:gravity="center"
                 android:padding="3dp"
                 android:layout_marginTop="5dp"
-                android:text="Visit our stores at MG Road,Fish &amp; Meat"
+                android:text="@string/visit_our_stores_at_mg_road_fish_amp_meat"
                 android:textColor="@color/colorblack" />
 
             <TextView

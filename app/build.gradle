@@ -13,7 +13,7 @@ android {
         googleServices { disableVersionCheck = true }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [
-                onesignal_app_id  : '067e1f42-2d53-434e-ba65-11733fa02e5d',
+                onesignal_app_id  : '03f27a8c-81ff-4a1b-99f6-85bdb990edb4',
                 // Project number pulled from dashboard, local value is ignored.
                 onesignal_google_project_number: 'REMOTE'
         ]

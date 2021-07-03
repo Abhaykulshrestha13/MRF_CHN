@@ -18019,12 +18019,15 @@ com.google.firebase.auth.ActionCodeUrl:
     public java.lang.String getContinueUrl()
     public java.lang.String getLanguageCode()
     public int getOperation()
-com.google.firebase.auth.AdditionalUserInfo
+com.google.firebase.auth.AdditionalUserInfo:
+    public abstract java.util.Map getProfile()
+    public abstract java.lang.String getProviderId()
+    public abstract java.lang.String getUsername()
 com.google.firebase.auth.AuthCredential:
     public abstract java.lang.String getSignInMethod()
 com.google.firebase.auth.AuthResult:
-    public abstract com.google.firebase.auth.AdditionalUserInfo getAdditionalUserInfo()
     public abstract com.google.firebase.auth.AuthCredential getCredential()
+    public abstract com.google.firebase.auth.FirebaseUser getUser()
 com.google.firebase.auth.EmailAuthCredential:
     public static boolean zzi(java.lang.String)
 com.google.firebase.auth.EmailAuthProvider
@@ -18097,6 +18100,7 @@ com.google.firebase.auth.FirebaseUser:
     public abstract java.lang.String getDisplayName()
     public abstract java.lang.String getEmail()
     public com.google.android.gms.tasks.Task getIdToken(boolean)
+    public abstract com.google.firebase.auth.FirebaseUserMetadata getMetadata()
     public abstract java.lang.String getPhoneNumber()
     public abstract android.net.Uri getPhotoUrl()
     public abstract java.lang.String getProviderId()
@@ -18116,6 +18120,9 @@ com.google.firebase.auth.FirebaseUser:
     public com.google.android.gms.tasks.Task verifyBeforeUpdateEmail(java.lang.String)
     public com.google.android.gms.tasks.Task verifyBeforeUpdateEmail(java.lang.String,com.google.firebase.auth.ActionCodeSettings)
     public abstract com.google.firebase.FirebaseApp zza()
+com.google.firebase.auth.FirebaseUserMetadata:
+    public abstract long getCreationTimestamp()
+    public abstract long getLastSignInTimestamp()
 com.google.firebase.auth.GetTokenResult:
     public long getAuthTimestamp()
     public long getExpirationTimestamp()
@@ -18244,10 +18251,9 @@ com.google.firebase.auth.internal.zzp:
     public final java.util.Map getProfile()
     public final java.lang.String getProviderId()
     public final java.lang.String getUsername()
-    public final boolean isNewUser()
 com.google.firebase.auth.internal.zzr:
-    public final com.google.firebase.auth.AdditionalUserInfo getAdditionalUserInfo()
     public final com.google.firebase.auth.AuthCredential getCredential()
+    public final com.google.firebase.auth.FirebaseUser getUser()
 com.google.firebase.auth.internal.zzt:
     public final java.lang.String getDisplayName()
     public final java.lang.String getEmail()
@@ -18265,6 +18271,9 @@ com.google.firebase.auth.internal.zzx:
     public final android.net.Uri getPhotoUrl()
     public final boolean isEmailVerified()
     public static com.google.firebase.auth.FirebaseUser zzk(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser)
+com.google.firebase.auth.internal.zzz:
+    public final long getCreationTimestamp()
+    public final long getLastSignInTimestamp()
 com.google.firebase.auth.zza
 com.google.firebase.auth.zzab
 com.google.firebase.auth.zze:
@@ -31723,6 +31732,8 @@ com.google.firebase.auth.ActionCodeUrl:
     public java.lang.String getCode()
     public static com.google.firebase.auth.ActionCodeUrl parseLink(java.lang.String)
     public final java.lang.String zza()
+com.google.firebase.auth.AdditionalUserInfo:
+    public abstract boolean isNewUser()
 com.google.firebase.auth.AuthCredential:
     public abstract java.lang.String getProvider()
 com.google.firebase.auth.EmailAuthCredential:
@@ -31776,9 +31787,7 @@ com.google.firebase.auth.FirebaseAuthUserCollisionException:
     public final com.google.firebase.auth.FirebaseAuthUserCollisionException zzc(java.lang.String)
 com.google.firebase.auth.FirebaseAuthWeakPasswordException:
     public final java.lang.String zza
-com.google.firebase.auth.FirebaseUserMetadata:
-    public abstract long getCreationTimestamp()
-    public abstract long getLastSignInTimestamp()
+com.google.firebase.auth.FirebaseUserMetadata
 com.google.firebase.auth.GetTokenResult:
     public java.lang.String zza
     public java.util.Map getClaims()
@@ -31908,6 +31917,7 @@ com.google.firebase.auth.internal.zzj:
     public final synchronized void zze(android.content.Context,java.lang.String,java.lang.String,java.lang.String)
 com.google.firebase.auth.internal.zzp:
     public final java.util.Map zzc
+    public final boolean isNewUser()
 com.google.firebase.auth.internal.zzt:
     public android.net.Uri zze
     public final java.lang.String getUid()
@@ -31924,6 +31934,7 @@ com.google.firebase.auth.internal.zzw:
     public final boolean zzd()
     public final boolean zze()
 com.google.firebase.auth.internal.zzx:
+    public final com.google.firebase.auth.FirebaseUserMetadata getMetadata()
     public final com.google.firebase.FirebaseApp zza()
     public final com.google.firebase.auth.zze zzj()
     public final com.google.firebase.auth.internal.zzx zzl(java.lang.String)
@@ -31935,8 +31946,6 @@ com.google.firebase.auth.internal.zzx:
     public final void zzr(com.google.firebase.auth.internal.zzz)
     public final boolean zzs()
 com.google.firebase.auth.internal.zzz:
-    public final long getCreationTimestamp()
-    public final long getLastSignInTimestamp()
     public final org.json.JSONObject zza()
 com.google.firebase.auth.zzad
 com.google.firebase.auth.zze:
@@ -32840,10 +32849,10 @@ com.mrf.app.activity.OtpLoginActivity:
     public static synthetic android.widget.EditText access$200(com.mrf.app.activity.OtpLoginActivity)
     public static synthetic android.widget.EditText access$300(com.mrf.app.activity.OtpLoginActivity)
     public static synthetic android.widget.EditText access$400(com.mrf.app.activity.OtpLoginActivity)
-    public static synthetic android.widget.EditText access$500(com.mrf.app.activity.OtpLoginActivity)
-    public static synthetic java.lang.String access$600(com.mrf.app.activity.OtpLoginActivity)
-    public static void access$700(com.mrf.app.activity.OtpLoginActivity,java.lang.String)
-    public static void access$800(com.mrf.app.activity.OtpLoginActivity,java.lang.String)
+    private void lambda$onCreate$0(android.widget.ProgressBar,android.widget.Button,com.google.android.gms.tasks.Task)
+    public void lambda$onCreate$0$OtpLoginActivity(android.widget.ProgressBar,android.widget.Button,com.google.android.gms.tasks.Task)
+    private void lambda$onCreate$1(android.widget.ProgressBar,android.widget.Button,android.view.View)
+    public void lambda$onCreate$1$OtpLoginActivity(android.widget.ProgressBar,android.widget.Button,android.view.View)
     public final void login(java.lang.String)
     public final void setupOtpInputs()
     public final void signUp(java.lang.String)

@@ -1,9 +1,12 @@
 package com.mrf.app.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,35 +21,33 @@ import static com.mrf.app.utils.SessionManager.CONTACT_US;
 
 
 public class ContectusActivity extends AppCompatActivity {
-    @BindView(R.id.txt_contac)
-    TextView txtContac;
-    SessionManager sessionManager;
+
+    TextView textEmail,whatsApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contectus);
-        ButterKnife.bind(this);
-        sessionManager = new SessionManager(this);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            txtContac.setText(Html.fromHtml(sessionManager.getStringData(CONTACT_US), Html.FROM_HTML_MODE_COMPACT));
-        } else {
-            txtContac.setText(Html.fromHtml(sessionManager.getStringData(CONTACT_US)));
+        textEmail = findViewById(R.id.txteml);
+        whatsApp = findViewById(R.id.txtwa);
+    }
+
+    public void email (View view){
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_EMAIL, textEmail.getText().toString());
+        intent.putExtra(Intent.EXTRA_SUBJECT, "MRF FOODS");
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-            default:
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void whatsapp (View view){
+        String number = whatsApp.getText().toString();
+        String url = "https://api.whatsapp.com/send?phone="+number;
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 }

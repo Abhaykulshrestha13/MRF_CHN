@@ -42,52 +42,16 @@ public class OtpVerifyActivity extends AppCompatActivity {
 
 
 
-        buttonGetOtp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (inputMobile.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(OtpVerifyActivity.this, "Enter mobile", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                progressBar.setVisibility(View.VISIBLE);
-                buttonGetOtp.setVisibility(View.INVISIBLE);
-
-                String phone = "+91" + inputMobile.getText().toString();
-                sendVerificationCode(phone);
-//                PhoneAuthProvider.getInstance().verifyPhoneNumber(
-//                        "+91" + inputMobile.getText().toString(),
-//                        60,
-//                        TimeUnit.SECONDS,
-//                        OtpVerifyActivity.this,
-//                        new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-//                            @Override
-//                            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-//                                progressBar.setVisibility(View.GONE);
-//                                buttonGetOtp.setVisibility(View.VISIBLE);
-//                            }
-//
-//                            @Override
-//                            public void onVerificationFailed(@NonNull FirebaseException e) {
-//                                progressBar.setVisibility(View.GONE);
-//                                buttonGetOtp.setVisibility(View.VISIBLE);
-//                                Toast.makeText(OtpVerifyActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-//                            }
-//
-//                            @Override
-//                            public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-//                                progressBar.setVisibility(View.GONE);
-//                                buttonGetOtp.setVisibility(View.VISIBLE);
-//                                Toast.makeText(OtpVerifyActivity.this, "OTP sent", Toast.LENGTH_SHORT).show();
-//                                Intent intent = new Intent(getApplicationContext(), OtpLoginActivity.class);
-//                                intent.putExtra("mobile", inputMobile.getText().toString());
-//                                intent.putExtra("verificationId", verificationId);
-//                                startActivity(intent);
-//                            }
-//                        });
-//
-//            }
-//        });
+        buttonGetOtp.setOnClickListener(v -> {
+            if (inputMobile.getText().toString().trim().isEmpty()) {
+                Toast.makeText(OtpVerifyActivity.this, "Enter mobile", Toast.LENGTH_SHORT).show();
+                return;
             }
+            progressBar.setVisibility(View.VISIBLE);
+            buttonGetOtp.setVisibility(View.INVISIBLE);
+
+            String phone = "+91" + inputMobile.getText().toString();
+            sendVerificationCode(phone);
         });
     }
     private void sendVerificationCode(String phone) {

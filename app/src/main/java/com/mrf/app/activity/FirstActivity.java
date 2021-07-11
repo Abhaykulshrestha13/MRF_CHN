@@ -53,7 +53,7 @@ public class FirstActivity extends AppCompatActivity {
                     startActivity(i);
                     finish();
                 } else {
-                    Intent i = new Intent(FirstActivity.this, MainActivity1.class);
+                    Intent i = new Intent(FirstActivity.this, OtpVerifyActivity.class);
                     startActivity(i);
                     finish();
                 }

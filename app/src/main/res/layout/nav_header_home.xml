@@ -13,11 +13,10 @@
 
     <TextView
         android:id="@+id/txtfirstl"
-        android:layout_width="65dp"
+        android:layout_width="75dp"
         android:layout_height="65dp"
-        android:background="@drawable/circle"
+        android:background="@drawable/logo_2"
         android:gravity="center"
-        android:text="m"
         android:textAllCaps="true"
         android:textColor="@color/colorred"
         android:textSize="25dp" />

@@ -54,20 +54,18 @@ public class MainActivity1 extends AppCompatActivity {
     // make status bar transparent
     changeStatusBarColor();
 
-    button.setOnClickListener(new View.OnClickListener() {
+    button.setOnClickListener(view -> {
+      if(viewPager.getCurrentItem() == adapter.getCount()-1){
 
-      @Override public void onClick(View view) {
-        if(viewPager.getCurrentItem() == adapter.getCount()-1){
-          Intent i = new Intent(MainActivity1.this, OtpVerifyActivity.class);
-          startActivity(i);
-          finish();
-        }
-        if (viewPager.getCurrentItem() < adapter.getCount()) {
-          viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-          // 0 1st slide 1 2nd slide 2 3rd slide
-         }
-
+        Intent i = new Intent(MainActivity1.this, OtpVerifyActivity.class);
+        startActivity(i);
+        finish();
       }
+      if (viewPager.getCurrentItem() < adapter.getCount()) {
+        viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+        // 0 1st slide 1 2nd slide 2 3rd slide
+       }
+
     });
 
     /**

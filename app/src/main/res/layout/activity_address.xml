@@ -75,16 +75,17 @@
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
 
+        <!-- TODO: Update blank fragment layout -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
             android:padding="5dp"
             android:text="My Address"
+            android:textAlignment="center"
             android:textColor="@color/colorblack"
             android:textSize="18dp"
             android:textStyle="bold" />
-        <!-- TODO: Update blank fragment layout -->
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle_address"
             android:layout_width="match_parent"

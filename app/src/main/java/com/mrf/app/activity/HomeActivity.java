@@ -40,8 +40,8 @@ public class HomeActivity extends AppCompatActivity {
     LinearLayout address;
     @BindView(R.id.contect)
     LinearLayout contect;
-//    @BindView(R.id.logout)
-//    LinearLayout logout;
+    @BindView(R.id.logout)
+    LinearLayout logout;
     @BindView(R.id.about)
     LinearLayout about;
     @BindView(R.id.tramscondition)
@@ -113,6 +113,7 @@ public class HomeActivity extends AppCompatActivity {
             txtName.setText("");
             txtMob.setText("");
             txtEmail.setText("");
+            finish();
         } else {
 
             char first = user.getFname().charAt(0);
@@ -139,7 +140,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 //    @OnClick({R.id.home, R.id.myprofile, R.id.myoder, R.id.address, R.id.contect, R.id.logout, R.id.about, R.id.tramscondition, R.id.privecy, R.id.faq, R.id.img_search, R.id.img_cart, R.id.img_close, R.id.btn_gotocart, R.id.img_notification})
-@OnClick({R.id.home, R.id.myoder, R.id.address, R.id.contect, R.id.about, R.id.tramscondition, R.id.privecy, R.id.faq, R.id.img_search, R.id.img_cart, R.id.img_close, R.id.btn_gotocart, R.id.img_notification})
+@OnClick({R.id.home, R.id.myoder, R.id.address, R.id.contect, R.id.about,R.id.logout, R.id.tramscondition, R.id.privecy, R.id.faq, R.id.img_search, R.id.img_cart, R.id.img_close, R.id.btn_gotocart, R.id.img_notification})
 public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.home:
@@ -158,11 +159,13 @@ public void onViewClicked(View view) {
             case R.id.contect:
                 startActivity(new Intent(HomeActivity.this, ContectusActivity.class));
                 break;
-//            case R.id.logout:
-//                sessionManager.logoutUser();
-//                startActivity(new Intent(HomeActivity.this, OtpVerifyActivity.class));
-//                finish();
-//                break;
+            case R.id.logout:
+                sessionManager.setBooleanData(SessionManager.USERLOGIN, false);
+//                sessionManager.setUserDetails(null,null);
+                sessionManager.logoutUser();
+                startActivity(new Intent(HomeActivity.this, OtpVerifyActivity.class));
+                finish();
+                break;
             case R.id.about:
                 startActivity(new Intent(HomeActivity.this, AboutsActivity.class));
                 break;

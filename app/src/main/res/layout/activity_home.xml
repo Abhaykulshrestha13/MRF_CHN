@@ -188,30 +188,30 @@
 
                 </LinearLayout>
 
-<!--                <LinearLayout-->
-<!--                    android:id="@+id/logout"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:gravity="center"-->
-<!--                    android:onClick="ClickNavigation"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:padding="5dp">-->
+                <LinearLayout
+                    android:id="@+id/logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:onClick="ClickNavigation"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-<!--                    <ImageView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:padding="10dp"-->
-<!--                        android:src="@drawable/ic_logout" />-->
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_logout" />
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:padding="3dp"-->
-<!--                        android:text="Log Out"-->
-<!--                        android:textColor="@color/colorblack"-->
-<!--                        android:textStyle="bold" />-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="Log Out"
+                        android:textColor="@color/colorblack"
+                        android:textStyle="bold" />
 
-<!--                </LinearLayout>-->
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -275,6 +275,24 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/refundPolicy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:onClick="ClickNavigation"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:padding="5dp"
+                        android:text="Refund Policy"
+                        android:textColor="@color/colorblack" />
+
+                </LinearLayout>
                 <LinearLayout
                     android:id="@+id/faq"
                     android:layout_width="match_parent"

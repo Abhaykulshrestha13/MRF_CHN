@@ -24,18 +24,18 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/ed_type"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="@string/type" />
-
-            <EditText
                 android:id="@+id/ed_address1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:hint="@string/address" />
+
+            <EditText
+                android:id="@+id/ed_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/type" />
 
             <EditText
                 android:id="@+id/ed_address2"
@@ -45,19 +45,19 @@
                 android:hint="@string/address2" />
 
             <EditText
+                android:id="@+id/ed_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/city" />
+
+            <EditText
                 android:id="@+id/ed_pincode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:hint="@string/pincode"
                 android:inputType="number" />
-
-            <EditText
-                android:id="@+id/ed_city"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="@string/city" />
 
             <EditText
                 android:id="@+id/ed_stats"

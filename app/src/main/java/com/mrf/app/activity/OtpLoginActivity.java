@@ -94,9 +94,9 @@ public class OtpLoginActivity extends AppCompatActivity implements GetResult.MyL
                         progressBar.setVisibility(View.GONE);
                         buttonVerify.setVisibility(View.VISIBLE);
                         if (task.isSuccessful()) {
-//                                FirebaseUser user = task.getResult().getUser();
                             String phoneNumber = getIntent().getStringExtra("mobile");
                             boolean isNewUser = task.getResult().getAdditionalUserInfo().isNewUser();
+
                             if (isNewUser) {
                                 //do create new user
                                 signUp(phoneNumber);

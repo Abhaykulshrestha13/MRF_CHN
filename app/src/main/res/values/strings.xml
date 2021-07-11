@@ -7,13 +7,13 @@
     <string name="password">Enter Your Password</string>
     <string name="newpassword">Enter New Password</string>
     <string name="mobile">Enter Your Mobile Number</string>
-    <string name="city">Enter Your City</string>
+    <string name="city">Enter Your Address</string>
     <string name="navigation_drawer_open">navigation drawer open</string>
     <string name="navigation_drawer_close">navigation drawer close</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="address">Flatno,/Building Name/Street Name</string>
-    <string name="address2">Landmark</string>
+    <string name="address">Your Name</string>
+    <string name="address2">Flatno,/Building Name/Street Name</string>
     <string name="pincode">Pincode</string>
     <string name="stats">Mobile No</string>
     <string name="submit">Submit</string>

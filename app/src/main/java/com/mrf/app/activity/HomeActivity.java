@@ -48,6 +48,8 @@ public class HomeActivity extends AppCompatActivity {
     LinearLayout tramscondition;
     @BindView(R.id.privecy)
     LinearLayout privecy;
+    @BindView(R.id.refundPolicy)
+    LinearLayout refundPolicy;
     @BindView(R.id.faq)
     LinearLayout faq;
     @BindView(R.id.drawer)
@@ -140,7 +142,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 //    @OnClick({R.id.home, R.id.myprofile, R.id.myoder, R.id.address, R.id.contect, R.id.logout, R.id.about, R.id.tramscondition, R.id.privecy, R.id.faq, R.id.img_search, R.id.img_cart, R.id.img_close, R.id.btn_gotocart, R.id.img_notification})
-@OnClick({R.id.home, R.id.myoder, R.id.address, R.id.contect, R.id.about,R.id.logout, R.id.tramscondition, R.id.privecy, R.id.faq, R.id.img_search, R.id.img_cart, R.id.img_close, R.id.btn_gotocart, R.id.img_notification})
+@OnClick({R.id.home, R.id.myoder, R.id.address, R.id.contect, R.id.about,R.id.logout,R.id.refundPolicy, R.id.tramscondition, R.id.privecy, R.id.faq, R.id.img_search, R.id.img_cart, R.id.img_close, R.id.btn_gotocart, R.id.img_notification})
 public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.home:
@@ -161,7 +163,6 @@ public void onViewClicked(View view) {
                 break;
             case R.id.logout:
                 sessionManager.setBooleanData(SessionManager.USERLOGIN, false);
-//                sessionManager.setUserDetails(null,null);
                 sessionManager.logoutUser();
                 startActivity(new Intent(HomeActivity.this, OtpVerifyActivity.class));
                 finish();
@@ -175,6 +176,9 @@ public void onViewClicked(View view) {
                 startActivity(new Intent(HomeActivity.this, PrivecyPolicyActivity.class));
                 break;
             case R.id.faq:
+                startActivity(new Intent(HomeActivity.this, TramsAndConditionActivity.class));
+                break;
+            case R.id.refundPolicy:
                 startActivity(new Intent(HomeActivity.this, TramsAndConditionActivity.class));
                 break;
             case R.id.img_search:

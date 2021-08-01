@@ -45,12 +45,15 @@ public class ContectusActivity extends AppCompatActivity {
 
     public void whatsapp (View view){
         String number = whatsApp.getText().toString();
-        String url = "https://api.whatsapp.com/send?phone="+number;
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.setType("text/plain");
-        sendIntent.setPackage("com.whatsapp");
-        sendIntent.setData(Uri.parse(url));
-        startActivity(sendIntent);
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:"+number));
+        startActivity(intent);
+//        String url = "https://api.whatsapp.com/send?phone="+number;
+//        Intent sendIntent = new Intent();
+//        sendIntent.setAction(Intent.ACTION_SEND);
+//        sendIntent.setType("text/plain");
+//        sendIntent.setPackage("com.whatsapp");
+//        sendIntent.setData(Uri.parse(url));
+//        startActivity(sendIntent);
     }
 }

@@ -28,25 +28,23 @@
                             android:padding="5dp"
                             android:text="ADDRESS:"
                             android:textColor="@color/black"
-                            android:textSize="20dp"
+                            android:textSize="25dp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:layout_marginLeft="40dp"
                             android:letterSpacing=".1"
-                            style="@style/contactus"
+                            android:textStyle="bold"
                             android:gravity="center_vertical"
                             android:text="RAM NAGAR,"
                             android:textSize="20sp" />
 
                         <TextView
+                            android:textStyle="bold"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:layout_marginLeft="40dp"
                             android:letterSpacing=".1"
-                            style="@style/contactus"
                             android:gravity="center_vertical"
                             android:text="MADIPAKKAM,"
                             android:textSize="20sp" />
@@ -54,22 +52,11 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:layout_marginLeft="40dp"
                             android:letterSpacing=".1"
-                            style="@style/contactus"
+                            android:textStyle="bold"
                             android:gravity="center_vertical"
                             android:text="CHENNAI, TAMILNADU - 600042"
                             android:textSize="20sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            style="@style/contactus"
-                            android:padding="5dp"
-                            android:text="Also,"
-                            android:textSize="25dp"
-                            android:textStyle="bold" />
 
                     </LinearLayout>
             </LinearLayout>

@@ -70,8 +70,6 @@ public class ItemItemFragment extends Fragment {
         if (getArguments() != null) {
             mPosition = getArguments().getInt("position");
             CID = getArguments().getString("cid");
-
-
         }
     }
 
@@ -96,16 +94,14 @@ public class ItemItemFragment extends Fragment {
         adapter1.notifyDataSetChanged();
         if (productlists.size() != 0) {
             txtEmpty.setVisibility(View.GONE);
+//            lvlMycart.setVisibility(View.VISIBLE);
         } else {
             txtEmpty.setVisibility(View.VISIBLE);
         }
         Cursor qrt = databaseHelper.getAllData();
-        if (qrt.getCount() == 0) {
-            lvlMycart.setVisibility(View.GONE);
-        } else {
-            lvlMycart.setVisibility(View.VISIBLE);
+//        lvlMycart.setVisibility(View.VISIBLE);
 
-        }
+
         return view;
     }
 

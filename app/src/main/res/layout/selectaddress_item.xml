@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,11 +8,27 @@
     android:layout_margin="5dp"
     android:padding="5dp">
 
-    <RadioButton
-        android:id="@+id/offer_select"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+    <ImageView
+        android:src="@drawable/address_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"/>
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_gravity="center"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/ic_baseline_home_24">
+    </ImageView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,23 +36,33 @@
         android:orientation="vertical">
 
         <TextView
+
+            android:textSize="20dp"
+            android:textStyle="bold"
             android:id="@+id/txt_addressname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="Office Addres"
+            style="@style/Font"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/txt_addressful"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:padding="4dp"
+            android:textSize="15dp"
             android:text="216, Apple squre, motavarachha, surat-305101"
             android:textColor="@color/colorblack"
             app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
-
-
-
-</LinearLayout>
+    </LinearLayout>
+        <RadioButton
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/offer_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
